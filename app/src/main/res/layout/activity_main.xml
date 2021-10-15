@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:descendantFocusability="blocksDescendants"
+    android:background="@drawable/stone"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center" >
+
+        <Button
+            android:id="@+id/ButtonProfile"
+            android:layout_width="50dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            app:cornerRadius="100dip"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:text="P" />
+
+        <TextView
+            android:id="@+id/textViewGoodTaste"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_gravity="top|center"
+            android:gravity="center"
+            android:fontFamily="serif"
+            android:textSize="40dp"
+            android:text="Good Taste"
+            android:textColor="@color/black"/>
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            app:cornerRadius="100dip"
+            android:text="S"
+            android:id="@+id/ButtonSettings" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
