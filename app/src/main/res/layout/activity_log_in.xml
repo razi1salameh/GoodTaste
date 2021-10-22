@@ -41,6 +41,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
         android:layout_marginBottom="100dp"
+        android:onClick="LogIn"
+        app:cornerRadius="10dp"
         android:text="log in" />
 
     <TextView
@@ -57,6 +59,7 @@
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="240dp"
+        app:cornerRadius="10dp"
         android:text="sign up" />
 
 </LinearLayout>

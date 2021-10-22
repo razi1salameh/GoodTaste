@@ -17,20 +17,18 @@
 
         <Button
             android:id="@+id/ButtonProfile"
-            android:layout_width="50dp"
-            android:layout_height="60dp"
+            android:layout_width="57dp"
+            android:layout_height="67dp"
             android:layout_marginTop="10dp"
-            app:cornerRadius="100dip"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:text="P" />
+            android:background="@drawable/ic_profile"/>
 
         <TextView
             android:id="@+id/textViewGoodTaste"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_gravity="top|center"
             android:gravity="center"
             android:fontFamily="serif"
@@ -39,12 +37,11 @@
             android:textColor="@color/black"/>
 
         <Button
-            android:layout_width="50dp"
-            android:layout_height="60dp"
+            android:id="@+id/ButtonSettings"
+            android:layout_width="57dp"
+            android:layout_height="67dp"
             android:layout_marginTop="10dp"
-            app:cornerRadius="100dip"
-            android:text="S"
-            android:id="@+id/ButtonSettings" />
+            android:background="@drawable/ic_settings"/>
 
     </LinearLayout>
 
