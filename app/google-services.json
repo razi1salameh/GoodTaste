@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "975402575195",
+    "project_id": "goodtaste-30dbb",
+    "storage_bucket": "goodtaste-30dbb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:975402575195:android:ebaf83e0fc2f2d815ba67e",
+        "android_client_info": {
+          "package_name": "com.example.goodtaste"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "975402575195-ouac8iqf6cal1248578v94k6ou32urjf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCDtQMMc3zaOyoBiWvclgy77jZvfs4F6Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "975402575195-ouac8iqf6cal1248578v94k6ou32urjf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
