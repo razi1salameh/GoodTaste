@@ -46,7 +46,7 @@
                 android:id="@+id/buttonViewCreator"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:background="@drawable/ic_profile"
+                android:background="@drawable/ic_person"
                 android:layout_marginRight="25dp"/>
 
             <Button
@@ -60,7 +60,7 @@
                 android:id="@+id/buttonViewSave"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:background="@drawable/ic_save" />
+                android:background="@drawable/ic_star_not_fill" />
 
         </LinearLayout>
 

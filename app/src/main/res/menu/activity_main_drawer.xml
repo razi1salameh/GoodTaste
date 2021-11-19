@@ -7,17 +7,21 @@
         <item android:title="Profile">
             <menu>
                 <item
-                    android:id="@+id/nav_gallery2"
-                    android:icon="@drawable/ic_menu_gallery"
-                    android:title="Friend's List" />
+                    android:id="@+id/nav_Profile"
+                    android:icon="@drawable/ic_person"
+                    android:title="Profile" />
                 <item
-                    android:id="@+id/nav_gallery"
-                    android:icon="@drawable/ic_menu_gallery"
-                    android:title="Add A friend" />
-                <item
-                    android:id="@+id/nav_slideshow"
-                    android:icon="@drawable/ic_menu_slideshow"
+                    android:id="@+id/nav_editProfile"
+                    android:icon="@drawable/ic_edit"
                     android:title="Edit Profile" />
+                <item
+                    android:id="@+id/nav_friends"
+                    android:icon="@drawable/ic_people"
+                    android:title="Friends" />
+                <item
+                    android:id="@+id/nav_addAFriend"
+                    android:icon="@drawable/ic_person_add"
+                    android:title="Add a friend" />
             </menu>
         </item>
     </group>
@@ -26,18 +30,18 @@
         <item android:title="Recipes">
             <menu>
                 <item
-                    android:id="@+id/nav_home1"
-                    android:icon="@drawable/ic_menu_camera"
-                    android:title="Create New Recipe" />
+                    android:id="@+id/nav_newRecipe"
+                    android:icon="@drawable/ic_add"
+                    android:title="New Recipe" />
 
                 <item
-                    android:id="@+id/nav_gallery1"
-                    android:icon="@drawable/ic_menu_gallery"
+                    android:id="@+id/nav_myRecipes"
+                    android:icon="@drawable/ic_list"
                     android:title="My Recipes" />
 
                 <item
-                    android:id="@+id/nav_slideshow1"
-                    android:icon="@drawable/ic_menu_slideshow"
+                    android:id="@+id/nav_favorites"
+                    android:icon="@drawable/ic_star_fill"
                     android:title="Favorites" />
             </menu>
         </item>
@@ -47,8 +51,8 @@
         <item android:title="Settings">
             <menu>
                 <item
-                    android:id="@+id/nav_slideshow2"
-                    android:icon="@drawable/ic_menu_slideshow"
+                    android:id="@+id/nav_logOut"
+                    android:icon="@drawable/ic_exit"
                     android:title="Log OuT" />
             </menu>
         </item>
