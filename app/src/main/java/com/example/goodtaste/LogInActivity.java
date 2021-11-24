@@ -25,20 +25,53 @@ public class LogInActivity extends AppCompatActivity implements DialogInterface.
     private TextView textViewGoodTaste, textViewMember;
     private EditText editTextEmail, editTextPassword;
     private Button buttonLogIn, buttonSigUp;
+
     private Intent musicIntent;
+
+    private static final String TAG = "FIREBASE";
+    private FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
 
-        textViewGoodTaste = findViewById(R.id.textViewGoodTaste);//.... NEEDS TO BE COUNTINUIED
+        //this will create variables with the values from xml that belongs to this java page
+        textViewGoodTaste = findViewById(R.id.textViewGoodTaste);
+        textViewMember = findViewById(R.id.textViewMember);
+        editTextEmail = findViewById(R.id.editTextEmail);
+        editTextPassword = findViewById(R.id.editTextPassword);
+        buttonLogIn = findViewById(R.id.buttonLogIn);
+        buttonSigUp = findViewById(R.id.buttonSigUp);
 
         //this will start the service which in turn will the music
         musicIntent = new Intent(this, MusicService.class);
         startService(musicIntent);
+
+        //this gets the reference of the dataBase in the cloud
+        firebaseAuth = FirebaseAuth.getInstance();
     }
 
+
+    public void login(String email, String password){
+        firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()){
+                    //SignIn success update UI with signIn users information
+                    Log.d(TAG, "signInWithEmail:success");
+                    FirebaseUser user = firebaseAuth.getCurrentUser();
+                    Intent i = new Intent(LogInActivity.this, NavDrawerActivity.class);
+                    startActivity(i);
+
+                }else{
+                    //If signIn fails display a massage to the user
+                    Log.w(TAG, "signInWithEmail:failure", task.getException());
+                    Toast.makeText(LogInActivity.this, "Authentication failed", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
 
     @Override
     public void onClick(DialogInterface dialog, int which)
@@ -66,8 +99,18 @@ public class LogInActivity extends AppCompatActivity implements DialogInterface.
     }
 
     public void logInMovePage(View view) {
-        Intent intent = new Intent(this, NavDrawerActivity.class);
-        startActivity(intent);
+        String p = editTextPassword.getText().toString();
+        String e = editTextEmail.getText().toString();
+        if(!p.equals("") && !e.equals(""))
+            login(editTextEmail.getText().toString(), editTextPassword.getText().toString());
+        else
+            Toast.makeText(LogInActivity.this, "Please make sure email and password are filled", Toast.LENGTH_SHORT).show();
+
+
     }
 
+    public void signup(View view) {
+        Intent i = new Intent(LogInActivity.this, SignUpActivity.class);
+        startActivity(i);
+    }
 }
