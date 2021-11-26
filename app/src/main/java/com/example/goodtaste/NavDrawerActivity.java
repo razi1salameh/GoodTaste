@@ -1,5 +1,9 @@
 package com.example.goodtaste;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
@@ -18,6 +22,7 @@ import com.example.goodtaste.databinding.ActivityNavDrawerBinding;
 
 public class NavDrawerActivity extends AppCompatActivity {
 
+    private static final int NOTIFICATION_REMINDER_NIGHT = 1;
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityNavDrawerBinding binding;
 
@@ -45,6 +50,12 @@ public class NavDrawerActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_nav_drawer);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        Intent notifyIntent = new Intent(this,NotificationReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, NOTIFICATION_REMINDER_NIGHT, notifyIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        AlarmManager alarmManager = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(),
+                1000 * 60 * 2, pendingIntent);
     }
 
     @Override

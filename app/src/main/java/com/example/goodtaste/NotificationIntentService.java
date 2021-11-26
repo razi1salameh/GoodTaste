@@ -2,10 +2,12 @@ package com.example.goodtaste;
 
 import android.app.IntentService;
 import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.Context;
+import android.os.Build;
 
 import androidx.core.app.NotificationManagerCompat;
 
@@ -19,48 +21,11 @@ import androidx.core.app.NotificationManagerCompat;
  */
 public class NotificationIntentService extends IntentService {
 
-    // TODO: Rename actions, choose action names that describe tasks that this
-    // IntentService can perform, e.g. ACTION_FETCH_NEW_ITEMS
-    private static final String ACTION_FOO = "com.example.goodtaste.action.FOO";
-    private static final String ACTION_BAZ = "com.example.goodtaste.action.BAZ";
-
-    // TODO: Rename parameters
-    private static final String EXTRA_PARAM1 = "com.example.goodtaste.extra.PARAM1";
-    private static final String EXTRA_PARAM2 = "com.example.goodtaste.extra.PARAM2";
+    //this the channel ID for notification management
     private static final int NOTIFICATION_ID = 3;
 
     public NotificationIntentService() {
         super("NotificationIntentService");
-    }
-
-    /**
-     * Starts this service to perform action Foo with the given parameters. If
-     * the service is already performing a task this action will be queued.
-     *
-     * @see IntentService
-     */
-    // TODO: Customize helper method
-    public static void startActionFoo(Context context, String param1, String param2) {
-        Intent intent = new Intent(context, NotificationIntentService.class);
-        intent.setAction(ACTION_FOO);
-        intent.putExtra(EXTRA_PARAM1, param1);
-        intent.putExtra(EXTRA_PARAM2, param2);
-        context.startService(intent);
-    }
-
-    /**
-     * Starts this service to perform action Baz with the given parameters. If
-     * the service is already performing a task this action will be queued.
-     *
-     * @see IntentService
-     */
-    // TODO: Customize helper method
-    public static void startActionBaz(Context context, String param1, String param2) {
-        Intent intent = new Intent(context, NotificationIntentService.class);
-        intent.setAction(ACTION_BAZ);
-        intent.putExtra(EXTRA_PARAM1, param1);
-        intent.putExtra(EXTRA_PARAM2, param2);
-        context.startService(intent);
     }
 
     @Override
@@ -70,6 +35,7 @@ public class NotificationIntentService extends IntentService {
         noBuilder.setContentTitle("this is the notification title");
         noBuilder.setContentTitle("this is the notification title");
         noBuilder.setSmallIcon(R.drawable.ic_person);
+
         //todo need to change the notification title
         /*
         this intent will be pending until the users clicks on the notification
@@ -84,23 +50,18 @@ public class NotificationIntentService extends IntentService {
         Notification notification = noBuilder.build();
         NotificationManagerCompat managerCompat = NotificationManagerCompat.from(this);
         managerCompat.notify(NOTIFICATION_ID, notification);
-    }
 
-    /**
-     * Handle action Foo in the provided background thread with the provided
-     * parameters.
-     */
-    private void handleActionFoo(String param1, String param2) {
-        // TODO: Handle action Foo
-        throw new UnsupportedOperationException("Not yet implemented");
-    }
+        NotificationManager mNotificationManager;
+        mNotificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
 
-    /**
-     * Handle action Baz in the provided background thread with the provided
-     * parameters.
-     */
-    private void handleActionBaz(String param1, String param2) {
-        // TODO: Handle action Baz
-        throw new UnsupportedOperationException("Not yet implemented");
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            String channelId = "Your_channel_id";
+            NotificationChannel channel = new NotificationChannel(channelId, "Channel human readable title", NotificationManager.IMPORTANCE_HIGH);
+            mNotificationManager.createNotificationChannel(channel);
+            noBuilder.setChannelId(channelId);
+        }
+
+        noBuilder.build();
+        mNotificationManager.notify(NOTIFICATION_ID, notification);
     }
 }
