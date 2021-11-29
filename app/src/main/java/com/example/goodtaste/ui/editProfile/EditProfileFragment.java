@@ -1,4 +1,4 @@
-package com.example.goodtaste.ui.addFriend;
+package com.example.goodtaste.ui.editProfile;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,21 +13,21 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.goodtaste.R;
-import com.example.goodtaste.databinding.FragmentAddFriendBinding;
+import com.example.goodtaste.databinding.FragmentEditProfileBinding;
 
-public class AddFriendFragment extends Fragment {
+public class EditProfileFragment extends Fragment {
 
-    private AddFriendViewModel addFriendViewModel;
-    private FragmentAddFriendBinding binding;
+    private EditProfileViewModel editProfileViewModel;
+    private FragmentEditProfileBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        addFriendViewModel = new ViewModelProvider(this).get(AddFriendViewModel.class);
+        editProfileViewModel = new ViewModelProvider(this).get(EditProfileViewModel.class);
 
-        binding = FragmentAddFriendBinding.inflate(inflater, container, false);
+        binding = FragmentEditProfileBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textAddFriend;
-        addFriendViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        final TextView textView = binding.textEditProfile;
+        editProfileViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

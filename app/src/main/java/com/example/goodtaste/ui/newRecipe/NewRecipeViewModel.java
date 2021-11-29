@@ -1,16 +1,16 @@
-package com.example.goodtaste.ui.slideshow;
+package com.example.goodtaste.ui.newRecipe;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class SlideshowViewModel extends ViewModel {
+public class NewRecipeViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public SlideshowViewModel() {
+    public NewRecipeViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is slideshow fragment");
+        mText.setValue("This is my new recipe fragment");
     }
 
     public LiveData<String> getText() {

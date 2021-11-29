@@ -1,16 +1,16 @@
-package com.example.goodtaste.ui.addFriend;
+package com.example.goodtaste.ui.myRecipes;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class AddFriendViewModel extends ViewModel {
+public class MyRecipesViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public AddFriendViewModel() {
+    public MyRecipesViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is add Friend fragment");
+        mText.setValue("This is my recipes fragment");
     }
 
     public LiveData<String> getText() {

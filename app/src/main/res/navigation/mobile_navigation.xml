@@ -12,21 +12,45 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.goodtaste.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_addAFriend"
+        android:name="com.example.goodtaste.ui.addFriend.AddFriendFragment"
+        android:label="Add Friend"
+        tools:layout="@layout/fragment_add_friend" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.goodtaste.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_editProfile"
+        android:name="com.example.goodtaste.ui.editProfile.EditProfileFragment"
+        android:label="Edit Profile"
+        tools:layout="@layout/fragment_edit_profile" />
+
+    <fragment
+        android:id="@+id/nav_favorites"
+        android:name="com.example.goodtaste.ui.favorites.FavoritesFragment"
+        android:label="Favorites"
+        tools:layout="@layout/fragment_favorites" />
+
+    <fragment
+        android:id="@+id/nav_friends"
+        android:name="com.example.goodtaste.ui.friends.FriendsFragment"
+        android:label="Friends"
+        tools:layout="@layout/fragment_friends" />
+
+    <fragment
+        android:id="@+id/nav_myRecipes"
+        android:name="com.example.goodtaste.ui.myRecipes.MyRecipesFragment"
+        android:label="My Recipes"
+        tools:layout="@layout/fragment_my_recipes" />
+
+    <fragment
+        android:id="@+id/nav_newRecipe"
+        android:name="com.example.goodtaste.ui.newRecipe.NewRecipeFragment"
+        android:label="New Recipe"
+        tools:layout="@layout/fragment_new_recipe" />
 
     <fragment
         android:id="@+id/nav_profile"
         android:name="com.example.goodtaste.ui.profile.ProfileFragment"
-        android:label="@string/menu_slideshow"
+        android:label="Profile"
         tools:layout="@layout/fragment_profile" />
 
 </navigation>
