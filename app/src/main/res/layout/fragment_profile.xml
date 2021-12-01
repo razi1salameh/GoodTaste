@@ -3,13 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#eff578"
     android:gravity="top|center"
     tools:context=".ui.profile.ProfileFragment">
 
     <TextView
-        android:id="@+id/TextViewTop"
-        android:layout_width="300dp"
+        android:id="@+id/textViewTop"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:textAlignment="center"
@@ -18,5 +17,15 @@
         android:textColor="@color/black"
         android:textSize="20sp" />
 
+    <TextView
+        android:id="@+id/textViewBottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:textAlignment="center"
+        android:text="Bottom rated happyyyyyyyyyyy"
+        android:fontFamily="serif-monospace"
+        android:textColor="@color/teal_200"
+        android:textSize="20sp" />
 
 </FrameLayout>

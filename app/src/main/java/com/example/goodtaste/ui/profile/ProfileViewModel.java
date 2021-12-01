@@ -6,11 +6,12 @@ import androidx.lifecycle.ViewModel;
 
 public class ProfileViewModel extends ViewModel {
 
-    private MutableLiveData<String> mText;
+    private MutableLiveData<String> mText, meText2;
 
     public ProfileViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is Profile fragment");
+
+        mText.setValue("This is profile fragment");
     }
 
     public LiveData<String> getText() {

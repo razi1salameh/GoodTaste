@@ -26,7 +26,7 @@ public class FriendsFragment extends Fragment {
         binding = FragmentFriendsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textFriends;
+        final TextView textView = binding.textViewFriends;
         friendsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {

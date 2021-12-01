@@ -1,4 +1,4 @@
-package com.example.goodtaste.ui.addFriend;
+package com.example.goodtaste.ui.groceryList;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,22 +12,21 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.goodtaste.R;
-import com.example.goodtaste.databinding.FragmentAddFriendBinding;
+import com.example.goodtaste.databinding.FragmentGrocaeryListBinding;
 
-public class AddFriendFragment extends Fragment {
+public class GroceryListFragment extends Fragment {
 
-    private AddFriendViewModel addFriendViewModel;
-    private FragmentAddFriendBinding binding;
+    private GroceryListViewModel groceryListViewModel;
+    private FragmentGrocaeryListBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        addFriendViewModel = new ViewModelProvider(this).get(AddFriendViewModel.class);
+        groceryListViewModel = new ViewModelProvider(this).get(GroceryListViewModel.class);
 
-        binding = FragmentAddFriendBinding.inflate(inflater, container, false);
+        binding = FragmentGrocaeryListBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textAddFriend;
-        addFriendViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        final TextView textView = binding.textViewGroceryList;
+        groceryListViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

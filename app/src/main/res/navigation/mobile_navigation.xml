@@ -5,23 +5,6 @@
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/nav_home">
 
-    <fragment
-        android:id="@+id/nav_home"
-        android:name="com.example.goodtaste.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
-
-    <fragment
-        android:id="@+id/nav_addAFriend"
-        android:name="com.example.goodtaste.ui.addFriend.AddFriendFragment"
-        android:label="Add Friend"
-        tools:layout="@layout/fragment_add_friend" />
-
-    <fragment
-        android:id="@+id/nav_editProfile"
-        android:name="com.example.goodtaste.ui.editProfile.EditProfileFragment"
-        android:label="Edit Profile"
-        tools:layout="@layout/fragment_edit_profile" />
 
     <fragment
         android:id="@+id/nav_favorites"
@@ -34,6 +17,18 @@
         android:name="com.example.goodtaste.ui.friends.FriendsFragment"
         android:label="Friends"
         tools:layout="@layout/fragment_friends" />
+
+    <fragment
+        android:id="@+id/nav_grocery_list"
+        android:name="com.example.goodtaste.ui.groceryList.GroceryListFragment"
+        android:label="Add Friend"
+        tools:layout="@layout/fragment_grocaery_list" />
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.goodtaste.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/nav_myRecipes"

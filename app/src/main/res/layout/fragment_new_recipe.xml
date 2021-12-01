@@ -6,7 +6,7 @@
     tools:context="ui.newRecipe.NewRecipeFragment">
 
     <TextView
-        android:id="@+id/text_newRecipe"
+        android:id="@+id/textViewNewRecipe"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

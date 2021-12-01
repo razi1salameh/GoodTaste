@@ -26,7 +26,7 @@ public class FavoritesFragment extends Fragment {
         binding = FragmentFavoritesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textFavorites;
+        final TextView textView = binding.textViewFavorites;
         favoritesViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {

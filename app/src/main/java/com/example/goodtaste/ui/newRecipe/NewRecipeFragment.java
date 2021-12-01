@@ -26,7 +26,7 @@ public class NewRecipeFragment extends Fragment {
         binding = FragmentNewRecipeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textNewRecipe;
+        final TextView textView = binding.textViewNewRecipe;
         newRecipeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {

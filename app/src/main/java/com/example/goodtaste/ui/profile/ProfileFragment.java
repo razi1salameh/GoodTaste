@@ -19,17 +19,22 @@ public class ProfileFragment extends Fragment {
     private ProfileViewModel profileViewModel;
     private FragmentProfileBinding binding;
 
+
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         profileViewModel = new ViewModelProvider(this).get(ProfileViewModel.class);
+
 
         binding = FragmentProfileBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.TextViewTop;
+
+        final TextView textViewTop = binding.textViewTop;
+        final TextView textViewBottom = binding.textViewBottom;
         profileViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
-                textView.setText(s);
+                textViewTop.setText(s);
+                textViewBottom.setText(s);
             }
         });
         return root;
