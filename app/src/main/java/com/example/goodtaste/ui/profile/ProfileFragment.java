@@ -30,13 +30,13 @@ public class ProfileFragment extends Fragment {
 
         final TextView textViewTop = binding.textViewTop;
         final TextView textViewBottom = binding.textViewBottom;
-        profileViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textViewTop.setText(s);
-                textViewBottom.setText(s);
-            }
-        });
+//        profileViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+//            @Override
+//            public void onChanged(@Nullable String s) {
+//                textViewTop.setText(s);
+//                textViewBottom.setText(s);
+//            }
+//        });
         return root;
     }
 
