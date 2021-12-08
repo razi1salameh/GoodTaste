@@ -13,12 +13,21 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.goodtaste.R;
+import com.example.goodtaste.Recipe;
 import com.example.goodtaste.databinding.FragmentHomeBinding;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
     private FragmentHomeBinding binding;
+
+
+    // Write a message to the database
+    private FirebaseAuth maFirebaseAuth = FirebaseAuth.getInstance();
+    private FirebaseDatabase database = FirebaseDatabase.getInstance("https://goodtaste-30dbb-default-rtdb.europe-west1.firebasedatabase.app/");
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
@@ -33,6 +42,12 @@ public class HomeFragment extends Fragment {
                 textView.setText(s);
             }
         });
+
+        String UID = maFirebaseAuth.getUid();
+        DatabaseReference myRef = database.getReference("Users");
+        Recipe re1 = new Recipe("this my recipe", 45);
+        myRef.push().setValue(re1);
+
         return root;
     }
 
@@ -41,4 +56,6 @@ public class HomeFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
+
+
 }
