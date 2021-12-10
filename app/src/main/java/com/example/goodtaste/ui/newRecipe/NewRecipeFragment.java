@@ -27,12 +27,12 @@ public class NewRecipeFragment extends Fragment {
         View root = binding.getRoot();
 
         final TextView textView = binding.textViewNewRecipe;
-        newRecipeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+//        newRecipeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+//            @Override
+//            public void onChanged(@Nullable String s) {
+//                textView.setText(s);
+//            }
+//        });
         return root;
     }
 

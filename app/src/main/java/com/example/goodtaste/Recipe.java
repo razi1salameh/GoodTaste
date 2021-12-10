@@ -6,11 +6,14 @@ public class Recipe {
     private String title;
     private int time;
 
-    //constructor
+    //constructor that takes value
     public Recipe(String title, int time) {
         this.title = title;
         this.time = time;
     }
+
+    //empty constructor
+    public Recipe(){ }
 
     public String getTitle() {
         return title;

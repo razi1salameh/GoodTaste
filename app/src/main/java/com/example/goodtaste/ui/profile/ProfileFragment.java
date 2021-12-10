@@ -33,9 +33,8 @@ public class ProfileFragment extends Fragment {
 //        profileViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
 //            @Override
 //            public void onChanged(@Nullable String s) {
-//                textViewTop.setText(s);
-//                textViewBottom.setText(s);
-//            }
+//              textViewTop.setText(s);
+//              }
 //        });
         return root;
     }

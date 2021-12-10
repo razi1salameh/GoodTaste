@@ -104,4 +104,9 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="title_activity_recipes_main">RecipesMain</string>
+    <string name="hello_explore_your_dream_food">hello explore your dream food</string>
+    <string name="ssbite">SSBite</string>
+    <string name="singin">SingIn</string>
+    <string name="sing_in">Sing In</string>
+    <string name="my_daily_ssbite">My daily SSBite</string>
 </resources>

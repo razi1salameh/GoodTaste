@@ -27,12 +27,12 @@ public class FavoritesFragment extends Fragment {
         View root = binding.getRoot();
 
         final TextView textView = binding.textViewFavorites;
-        favoritesViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+//        favoritesViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+//            @Override
+//            public void onChanged(@Nullable String s) {
+//                textView.setText(s);
+//            }
+//        });
         return root;
     }
 

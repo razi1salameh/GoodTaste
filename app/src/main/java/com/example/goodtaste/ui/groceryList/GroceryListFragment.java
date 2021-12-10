@@ -26,12 +26,12 @@ public class GroceryListFragment extends Fragment {
         View root = binding.getRoot();
 
         final TextView textView = binding.textViewGroceryList;
-        groceryListViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+//        groceryListViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+//            @Override
+//            public void onChanged(@Nullable String s) {
+//                textView.setText(s);
+//            }
+//        });
         return root;
     }
 
