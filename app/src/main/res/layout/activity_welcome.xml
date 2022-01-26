@@ -7,7 +7,8 @@
     tools:context=".WelcomeActivity">
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:foreground="@drawable/foreground_design"
+        android:id="@+id/imageViewBackgroundWelcome"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
@@ -16,7 +17,7 @@
         tools:layout_editor_absoluteY="0dp" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textViewTitle1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/lobster"
@@ -25,13 +26,13 @@
         android:textColor="@color/white"
         android:textSize="33sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewBackgroundWelcome"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias=".4" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textViewExplore"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/hello_explore_your_dream_food"
@@ -40,36 +41,37 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitle1" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonLogIn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:padding="14dp"
-        android:text="Register"
+        android:text="@string/sing_in"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/textViewExplore"
         app:layout_constraintVertical_bias=".7"
         android:textStyle="bold"
+        android:onClick="MoveToLogIn"
         app:layout_constraintWidth_percent=".8"
         android:background="@drawable/button_bg_design" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/sing_in"
+        android:text="Register"
         android:textColor="#FBFBFB"
         android:textSize="16sp"
         android:textStyle="bold"
+        android:onClick="MoveToRegister"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
-        android:textAlignment="center"
-        android:onClick="WelcomeMovePage"/>
+        app:layout_constraintTop_toBottomOf="@+id/buttonLogIn"
+        android:textAlignment="center" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

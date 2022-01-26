@@ -20,7 +20,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class LogInActivity extends AppCompatActivity implements DialogInterface.OnClickListener{
+public class LogInActivity extends AppCompatActivity {
 
     private TextView textViewGoodTaste, textViewMember;
     private EditText editTextEmail, editTextPassword;
@@ -71,31 +71,6 @@ public class LogInActivity extends AppCompatActivity implements DialogInterface.
                 }
             }
         });
-    }
-
-    @Override
-    public void onClick(DialogInterface dialog, int which)
-    {
-        if(which==dialog.BUTTON_POSITIVE)
-        {
-            super.onBackPressed();
-            dialog.cancel();
-        }
-        if(which==dialog.BUTTON_NEGATIVE)
-        {
-            dialog.cancel();
-        }
-    }
-
-    @Override
-    public void onBackPressed() {
-        AlertDialog.Builder builder=new AlertDialog.Builder(this);
-        builder.setMessage("Are you sure?");
-        builder.setCancelable(false);
-        builder.setPositiveButton("Yes",this);
-        builder.setNegativeButton("NO",this);
-        AlertDialog dialog= builder.create();
-        dialog.show();
     }
 
     public void logInMovePage(View view) {

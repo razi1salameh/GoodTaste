@@ -19,7 +19,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class SignUpActivity extends AppCompatActivity {
 
-    private EditText editTextName,editTextEmail,editTextPassword,editTextLocation;
+    private EditText editTextFullName,editTextEmail,editTextPassword,editTextConfirmPassword,editTextBirthday;
     private Button buttonSignUp;
 
     private static final String TAG = "FIREBASE";
@@ -31,10 +31,11 @@ public class SignUpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
 
         //this will create variables with the values from xml that belongs to this java page
-        editTextName = findViewById(R.id.editTextName);
+        editTextFullName = findViewById(R.id.editTextFullName);
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
-        editTextLocation = findViewById(R.id.editTextLocation);
+        editTextConfirmPassword = findViewById(R.id.editTextConfirmPassword);
+        editTextBirthday = findViewById(R.id.editTextBirthday);
 
         //this gets the reference of the dataBase in the cloud
         firebaseAuth = FirebaseAuth.getInstance();

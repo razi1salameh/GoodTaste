@@ -12,17 +12,17 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.goodtaste.databinding.FragmentGrocaeryListBinding;
+import com.example.goodtaste.databinding.FragmentGroceryListBinding;
 
 public class GroceryListFragment extends Fragment {
 
     private GroceryListViewModel groceryListViewModel;
-    private FragmentGrocaeryListBinding binding;
+    private FragmentGroceryListBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         groceryListViewModel = new ViewModelProvider(this).get(GroceryListViewModel.class);
 
-        binding = FragmentGrocaeryListBinding.inflate(inflater, container, false);
+        binding = FragmentGroceryListBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textViewGroceryList;

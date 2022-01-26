@@ -1,4 +1,4 @@
-package com.example.goodtaste.ui.favorites;
+package com.example.goodtaste.ui.favRecipes;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,22 +12,21 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.goodtaste.R;
-import com.example.goodtaste.databinding.FragmentFavoritesBinding;
+import com.example.goodtaste.databinding.FragmentFavRecipesBinding;
 
-public class FavoritesFragment extends Fragment {
+public class FavRecipesFragment extends Fragment {
 
-    private FavoritesViewModel favoritesViewModel;
-    private FragmentFavoritesBinding binding;
+    private FavRecipesViewModel favRecipesViewModel;
+    private FragmentFavRecipesBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        favoritesViewModel = new ViewModelProvider(this).get(FavoritesViewModel.class);
+        favRecipesViewModel = new ViewModelProvider(this).get(FavRecipesViewModel.class);
 
-        binding = FragmentFavoritesBinding.inflate(inflater, container, false);
+        binding = FragmentFavRecipesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textViewFavorites;
-//        favoritesViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        final TextView textView = binding.textViewFavRecipes;
+//        groceryListViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
 //            @Override
 //            public void onChanged(@Nullable String s) {
 //                textView.setText(s);

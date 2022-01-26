@@ -1,4 +1,4 @@
-package com.example.goodtaste.ui.friends;
+package com.example.goodtaste.ui.favAccounts;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,22 +12,22 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.goodtaste.R;
-import com.example.goodtaste.databinding.FragmentFriendsBinding;
+import com.example.goodtaste.databinding.FragmentFavAccountsBinding;
 
-public class FriendsFragment extends Fragment {
 
-    private FriendsViewModel friendsViewModel;
-    private FragmentFriendsBinding binding;
+public class FavAccountsFragment extends Fragment {
+
+    private FavAccountsViewModel favAccountsViewModel;
+    private FragmentFavAccountsBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        friendsViewModel = new ViewModelProvider(this).get(FriendsViewModel.class);
+        favAccountsViewModel = new ViewModelProvider(this).get(FavAccountsViewModel.class);
 
-        binding = FragmentFriendsBinding.inflate(inflater, container, false);
+        binding = FragmentFavAccountsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textViewFriends;
-//        friendsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        final TextView textView = binding.textViewFavAccounts;
+//        groceryListViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
 //            @Override
 //            public void onChanged(@Nullable String s) {
 //                textView.setText(s);

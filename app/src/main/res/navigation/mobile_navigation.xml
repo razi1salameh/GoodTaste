@@ -5,24 +5,23 @@
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/nav_home">
 
-
     <fragment
-        android:id="@+id/nav_favorites"
-        android:name="com.example.goodtaste.ui.favorites.FavoritesFragment"
-        android:label="Favorites"
-        tools:layout="@layout/fragment_favorites" />
-
-    <fragment
-        android:id="@+id/nav_friends"
-        android:name="com.example.goodtaste.ui.friends.FriendsFragment"
+        android:id="@+id/nav_favAccounts"
+        android:name="com.example.goodtaste.ui.favAccounts.FavAccountsFragment"
         android:label="Friends"
-        tools:layout="@layout/fragment_friends" />
+        tools:layout="@layout/fragment_favAccounts" />
+
+    <fragment
+        android:id="@+id/nav_favRecipes"
+        android:name="com.example.goodtaste.ui.favRecipes.FavRecipesFragment"
+        android:label="Favorites"
+        tools:layout="@layout/fragment_fav_Recipes" />
 
     <fragment
         android:id="@+id/nav_grocery_list"
         android:name="com.example.goodtaste.ui.groceryList.GroceryListFragment"
-        android:label="Add Friend"
-        tools:layout="@layout/fragment_grocaery_list" />
+        android:label="Grocery List"
+        tools:layout="@layout/fragment_grocery_list" />
 
     <fragment
         android:id="@+id/nav_home"

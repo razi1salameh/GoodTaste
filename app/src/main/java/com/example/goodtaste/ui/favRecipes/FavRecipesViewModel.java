@@ -1,16 +1,16 @@
-package com.example.goodtaste.ui.favorites;
+package com.example.goodtaste.ui.favRecipes;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class FavoritesViewModel extends ViewModel {
+public class FavRecipesViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public FavoritesViewModel() {
+    public FavRecipesViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is favorites fragment");
+        mText.setValue("This is grocery list fragment");
     }
 
     public LiveData<String> getText() {

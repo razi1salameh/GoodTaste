@@ -14,8 +14,12 @@ public class WelcomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_welcome);
     }
 
-    public void WelcomeMovePage(View view) {
+    public void MoveToLogIn(View view) {
         Intent i = new Intent(WelcomeActivity.this, LogInActivity.class);
         startActivity(i);
+    }
+
+    public void MoveToRegister(View view) {
+        startActivity(new Intent(WelcomeActivity.this, SignUpActivity.class));
     }
 }
