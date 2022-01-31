@@ -14,25 +14,15 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.goodtaste.databinding.FragmentFavAccountsBinding;
 
-
 public class FavAccountsFragment extends Fragment {
 
-    private FavAccountsViewModel favAccountsViewModel;
     private FragmentFavAccountsBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        favAccountsViewModel = new ViewModelProvider(this).get(FavAccountsViewModel.class);
-
         binding = FragmentFavAccountsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textViewFavAccounts;
-//        groceryListViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-//            @Override
-//            public void onChanged(@Nullable String s) {
-//                textView.setText(s);
-//            }
-//        });
         return root;
     }
 

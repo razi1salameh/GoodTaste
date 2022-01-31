@@ -16,22 +16,13 @@ import com.example.goodtaste.databinding.FragmentGroceryListBinding;
 
 public class GroceryListFragment extends Fragment {
 
-    private GroceryListViewModel groceryListViewModel;
     private FragmentGroceryListBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        groceryListViewModel = new ViewModelProvider(this).get(GroceryListViewModel.class);
-
         binding = FragmentGroceryListBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textViewGroceryList;
-//        groceryListViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-//            @Override
-//            public void onChanged(@Nullable String s) {
-//                textView.setText(s);
-//            }
-//        });
         return root;
     }
 

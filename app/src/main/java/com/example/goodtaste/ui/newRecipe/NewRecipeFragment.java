@@ -17,22 +17,13 @@ import com.example.goodtaste.databinding.FragmentNewRecipeBinding;
 
 public class NewRecipeFragment extends Fragment {
 
-    private NewRecipeViewModel newRecipeViewModel;
     private FragmentNewRecipeBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        newRecipeViewModel = new ViewModelProvider(this).get(NewRecipeViewModel.class);
-
         binding = FragmentNewRecipeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textViewNewRecipe;
-//        newRecipeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-//            @Override
-//            public void onChanged(@Nullable String s) {
-//                textView.setText(s);
-//            }
-//        });
         return root;
     }
 

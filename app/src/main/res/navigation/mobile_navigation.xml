@@ -8,14 +8,14 @@
     <fragment
         android:id="@+id/nav_favAccounts"
         android:name="com.example.goodtaste.ui.favAccounts.FavAccountsFragment"
-        android:label="Friends"
-        tools:layout="@layout/fragment_favAccounts" />
+        android:label="Favorite Accounts"
+        tools:layout="@layout/fragment_fav_accounts" />
 
     <fragment
         android:id="@+id/nav_favRecipes"
         android:name="com.example.goodtaste.ui.favRecipes.FavRecipesFragment"
-        android:label="Favorites"
-        tools:layout="@layout/fragment_fav_Recipes" />
+        android:label="Favorite Recipes"
+        tools:layout="@layout/fragment_fav_recipes" />
 
     <fragment
         android:id="@+id/nav_grocery_list"

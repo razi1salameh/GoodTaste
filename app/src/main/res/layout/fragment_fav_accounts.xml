@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ui.favRecipes.FavRecipesFragment">
+    tools:context=".ui.favAccounts.FavAccountsFragment">
 
     <TextView
-        android:id="@+id/textViewFavRecipes"
+        android:id="@+id/textViewFavAccounts"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -15,4 +15,4 @@
         android:textAlignment="center"
         android:textSize="20sp"/>
 
-</LinearLayout>
+</FrameLayout>

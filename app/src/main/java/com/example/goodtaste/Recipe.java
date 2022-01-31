@@ -1,33 +1,29 @@
 package com.example.goodtaste;
 
+import java.util.ArrayList;
+
 public class Recipe {
 
     //properties
+    //the name of the recipe
     private String title;
-    private int time;
 
-    //constructor that takes value
-    public Recipe(String title, int time) {
-        this.title = title;
-        this.time = time;
-    }
+    //How much to prepare it
+    private String time;
 
-    //empty constructor
-    public Recipe(){ }
+    //If the recipe is added to favorites it is true and star will be fill otherwise it is false and not fill
+    private boolean favorite;
 
-    public String getTitle() {
-        return title;
-    }
+    //The recipe's creator
+    private User creator;
 
-    public int getTime() {
-        return time;
-    }
+    //The category of the recipe
+    private String category;
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+    //List of the ingredients
+    private ArrayList<Ingredient> ingredients;
 
-    public void setTime(int time) {
-        this.time = time;
-    }
+    //Steps to make the recipe
+    private ArrayList<String> steps;
+
 }

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#eff578"
     android:gravity="top|center"
-    tools:context=".ui.home.HomeFragment">
+    tools:context=".ui.favRecipes.FavRecipesFragment">
 
     <TextView
         android:id="@+id/textViewTop"

@@ -7,31 +7,21 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
+
 
 import com.example.goodtaste.databinding.FragmentFavRecipesBinding;
 
 public class FavRecipesFragment extends Fragment {
 
-    private FavRecipesViewModel favRecipesViewModel;
     private FragmentFavRecipesBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        favRecipesViewModel = new ViewModelProvider(this).get(FavRecipesViewModel.class);
-
         binding = FragmentFavRecipesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textViewFavRecipes;
-//        groceryListViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-//            @Override
-//            public void onChanged(@Nullable String s) {
-//                textView.setText(s);
-//            }
-//        });
+        final TextView textView = binding.textViewTop;
         return root;
     }
 

@@ -24,9 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class HomeFragment extends Fragment {
 
-    private HomeViewModel homeViewModel;
     private FragmentHomeBinding binding;
-
 
     //get instance of Authentication PROJECT IN FB console
     private FirebaseAuth maFirebaseAuth = FirebaseAuth.getInstance();
@@ -34,18 +32,12 @@ public class HomeFragment extends Fragment {
     private FirebaseDatabase database = FirebaseDatabase.getInstance("https://goodtaste-30dbb-default-rtdb.europe-west1.firebasedatabase.app/");
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textViewTop;
-//        homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-//            @Override
-//            public void onChanged(@Nullable String s) {
-//                textView.setText(s);
-//            }
-//        });
+
 
         String UID = maFirebaseAuth.getUid();
 
