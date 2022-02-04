@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.goodtaste.R;
 import com.example.goodtaste.Recipe;
+import com.example.goodtaste.User;
 import com.example.goodtaste.databinding.FragmentHomeBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -45,10 +46,11 @@ public class HomeFragment extends Fragment {
         DatabaseReference myRef = database.getReference("Users");
 
         //build the item you want to push into the FB
-        Recipe re1 = new Recipe("this my recipe", 45);
+        //User u1 = new
+        //Recipe re1 = new Recipe("rice", "TheIMAGE", "00:30", true, "TheVideo", new User());
 
         //adds an item to the FB under the referenced specified
-        myRef.push().setValue(re1);
+        //myRef.push().setValue(re1);
 
 
         myRef.addValueEventListener(new ValueEventListener() {

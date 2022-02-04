@@ -65,7 +65,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:backgroundTint="#CCCCCC"
-        android:drawableLeft="@drawable/ic_account"
+        android:drawableLeft="@drawable/ic_email"
         android:drawablePadding="13dp"
         android:hint="@string/email"
         android:textColorHint="@color/white"
@@ -79,7 +79,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:backgroundTint="#CCCCCC"
-        android:drawableLeft="@drawable/ic_account"
+        android:drawableLeft="@drawable/ic_lock"
         android:drawablePadding="13dp"
         android:hint="@string/password"
         android:textColorHint="@color/white"
@@ -93,7 +93,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:backgroundTint="#CCCCCC"
-        android:drawableLeft="@drawable/ic_account"
+        android:drawableLeft="@drawable/ic_check_circle"
         android:drawablePadding="13dp"
         android:hint="@string/confirm_password"
         android:textColorHint="@color/white"
@@ -103,19 +103,32 @@
         app:layout_constraintWidth_percent=".8" />
 
     <EditText
-        android:id="@+id/editTextBirthday"
+        android:id="@+id/editTextCity"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:backgroundTint="#CCCCCC"
-        android:drawableLeft="@drawable/ic_account"
+        android:drawableLeft="@drawable/ic_home"
         android:drawablePadding="13dp"
-        android:hint="@string/birthday"
+        android:hint="@string/City"
         android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextConfirmPassword"
         app:layout_constraintWidth_percent=".8" />
 
+    <EditText
+        android:id="@+id/editTextProfession"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#CCCCCC"
+        android:drawableLeft="@drawable/ic_work"
+        android:drawablePadding="13dp"
+        android:hint="@string/profession"
+        android:textColorHint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCity"
+        app:layout_constraintWidth_percent=".8" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
