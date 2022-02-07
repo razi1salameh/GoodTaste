@@ -7,14 +7,14 @@
     tools:context=".WelcomeActivity">
 
     <ImageView
-        android:foreground="@drawable/foreground_design"
         android:id="@+id/imageViewBackgroundWelcome"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:foreground="@drawable/foreground_design"
         android:scaleType="centerCrop"
         android:src="@drawable/bg2"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
+        tools:layout_editor_absoluteX="-73dp"
+        tools:layout_editor_absoluteY="-16dp" />
 
     <TextView
         android:id="@+id/textViewTitle1"
@@ -54,24 +54,58 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewExplore"
-        app:layout_constraintVertical_bias=".7"
+        app:layout_constraintVertical_bias=".6"
         android:textStyle="bold"
         android:onClick="MoveToLogIn"
         app:layout_constraintWidth_percent=".8"
         android:background="@drawable/button_bg_design" />
 
     <TextView
+        android:id="@+id/textViewNotUser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Register"
+        android:text="Aren't you a member yet ?"
         android:textColor="#FBFBFB"
-        android:textSize="16sp"
+        android:textSize="18dp"
+        app:layout_constraintVertical_bias=".4"
         android:textStyle="bold"
-        android:onClick="MoveToRegister"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonLogIn"
         android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/textViewClickHere"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Click here to"
+        android:textAlignment="center"
+        android:textColor="#FBFBFB"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.356"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNotUser"
+        app:layout_constraintVertical_bias="0.277" />
+
+    <TextView
+        android:id="@+id/textViewRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="MoveToRegister"
+        android:text="Register"
+        android:textAlignment="center"
+        android:textColor="@color/teal_200"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.095"
+        app:layout_constraintStart_toEndOf="@+id/textViewClickHere"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNotUser"
+        app:layout_constraintVertical_bias="0.277" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

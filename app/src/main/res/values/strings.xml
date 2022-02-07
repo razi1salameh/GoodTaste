@@ -117,4 +117,8 @@
     <string name="city">city</string>
     <string name="City">City</string>
     <string name="profession">Profession</string>
+    <string name="submit">Submit</string>
+    <string name="eamil">Eamil</string>
+    <string name="sign_in">Sign In</string>
+    <string name="log_in">Log In</string>
 </resources>

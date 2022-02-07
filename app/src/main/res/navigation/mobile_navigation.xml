@@ -6,13 +6,13 @@
     app:startDestination="@+id/nav_home">
 
     <fragment
-        android:id="@+id/nav_favAccounts"
+        android:id="@+id/nav_fav_accounts"
         android:name="com.example.goodtaste.ui.favAccounts.FavAccountsFragment"
         android:label="Favorite Accounts"
         tools:layout="@layout/fragment_fav_accounts" />
 
     <fragment
-        android:id="@+id/nav_favRecipes"
+        android:id="@+id/nav_fav_recipes"
         android:name="com.example.goodtaste.ui.favRecipes.FavRecipesFragment"
         android:label="Favorite Recipes"
         tools:layout="@layout/fragment_fav_recipes" />

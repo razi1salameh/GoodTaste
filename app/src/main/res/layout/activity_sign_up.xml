@@ -31,25 +31,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <TextView
         android:id="@+id/textViewRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="15dp"
         android:text="Register"
         android:textAlignment="center"
         android:textColor="#FBFBFB"
         android:textSize="19sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewMainTitle2" />
 
-
     <EditText
         android:id="@+id/editTextFullName"
+        android:textColor="@color/white"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:backgroundTint="#CCCCCC"
         android:drawableLeft="@drawable/ic_account"
         android:drawablePadding="13dp"
@@ -62,6 +65,7 @@
 
     <EditText
         android:id="@+id/editTextEmail"
+        android:textColor="@color/white"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:backgroundTint="#CCCCCC"
@@ -76,12 +80,14 @@
 
     <EditText
         android:id="@+id/editTextPassword"
+        android:textColor="@color/white"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:backgroundTint="#CCCCCC"
         android:drawableLeft="@drawable/ic_lock"
         android:drawablePadding="13dp"
         android:hint="@string/password"
+        android:inputType="textPassword"
         android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -90,12 +96,14 @@
 
     <EditText
         android:id="@+id/editTextConfirmPassword"
+        android:textColor="@color/white"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:backgroundTint="#CCCCCC"
         android:drawableLeft="@drawable/ic_check_circle"
         android:drawablePadding="13dp"
         android:hint="@string/confirm_password"
+        android:inputType="textPassword"
         android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -104,6 +112,7 @@
 
     <EditText
         android:id="@+id/editTextCity"
+        android:textColor="@color/white"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:backgroundTint="#CCCCCC"
@@ -118,6 +127,7 @@
 
     <EditText
         android:id="@+id/editTextProfession"
+        android:textColor="@color/white"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:backgroundTint="#CCCCCC"
@@ -129,6 +139,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextCity"
         app:layout_constraintWidth_percent=".8" />
+
+    <Button
+        android:id="@+id/buttonSigUp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="14dp"
+        android:text="@string/submit"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextProfession"
+        app:layout_constraintVertical_bias=".7"
+        android:textStyle="bold"
+        android:onClick="Submit"
+        app:layout_constraintWidth_percent=".8"
+        android:background="@drawable/button_bg_design" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

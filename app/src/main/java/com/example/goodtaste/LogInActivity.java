@@ -22,7 +22,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LogInActivity extends AppCompatActivity {
 
-    private TextView textViewGoodTaste, textViewMember;
+    private TextView textViewMainTitle2, textViewLogIn;
     private EditText editTextEmail, editTextPassword;
     private Button buttonLogIn, buttonSigUp;
 
@@ -37,8 +37,8 @@ public class LogInActivity extends AppCompatActivity {
         setContentView(R.layout.activity_log_in);
 
         //this will create variables with the values from xml that belongs to this java page
-        textViewGoodTaste = findViewById(R.id.textViewGoodTaste);
-        textViewMember = findViewById(R.id.textViewMember);
+        textViewMainTitle2 = findViewById(R.id.textViewMainTitle2);
+        textViewLogIn = findViewById(R.id.textViewLogIn);
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
         buttonLogIn = findViewById(R.id.buttonLogIn);
@@ -84,8 +84,4 @@ public class LogInActivity extends AppCompatActivity {
 
     }
 
-    public void signup(View view) {
-        Intent i = new Intent(LogInActivity.this, SignUpActivity.class);
-        startActivity(i);
-    }
 }

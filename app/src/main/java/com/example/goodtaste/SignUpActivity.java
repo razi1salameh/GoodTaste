@@ -20,7 +20,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class SignUpActivity extends AppCompatActivity {
 
     private EditText editTextFullName,editTextEmail,editTextPassword,editTextConfirmPassword,editTextCity,editTextProfession;
-    private Button buttonSignUp;
+    private Button buttonSigUp;
 
     private static final String TAG = "FIREBASE";
     private FirebaseAuth firebaseAuth;
@@ -37,6 +37,7 @@ public class SignUpActivity extends AppCompatActivity {
         editTextConfirmPassword = findViewById(R.id.editTextConfirmPassword);
         editTextCity = findViewById(R.id.editTextCity);
         editTextProfession = findViewById(R.id.editTextProfession);
+        buttonSigUp = findViewById(R.id.buttonSigUp);
 
         //this gets the reference of the dataBase in the cloud
         firebaseAuth = FirebaseAuth.getInstance();
