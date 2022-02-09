@@ -22,6 +22,10 @@
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/drawable/ic_person.xml" value="0.2203125" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/drawable/ic_work.xml" value="0.2203125" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/drawable/side_nav_bar.xml" value="0.2203125" />
+        <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/font/allerta_stencil.xml" value="0.18611111111111112" />
+        <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/font/diot.xml" value="0.18611111111111112" />
+        <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/font/fondamento.xml" value="0.18611111111111112" />
+        <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/font/lobster.xml" value="0.18611111111111112" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout-w1240dp/app_bar_nav_drawer.xml" value="0.13119143239625167" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout-w1240dp/content_nav_drawer.xml" value="0.1" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout-w1240dp/content_scrolling.xml" value="0.33" />
@@ -30,7 +34,7 @@
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout/activity_array_list_top.xml" value="0.2006340579710145" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout/activity_log_in.xml" value="0.25" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout/activity_main.xml" value="0.2" />
-        <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout/activity_nav_drawer.xml" value="0.2" />
+        <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout/activity_nav_drawer.xml" value="0.25" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout/activity_navigation_bar.xml" value="0.19927536231884058" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout/activity_sign_up.xml" value="0.22" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout/activity_welcome.xml" value="0.21" />

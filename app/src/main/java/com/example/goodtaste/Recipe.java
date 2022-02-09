@@ -43,45 +43,28 @@ public class Recipe {
         this.ingredients = ingredients;
         this.steps = steps;
     }
-    public Recipe(){
-        
-    }
+
+    public Recipe(){ }
+
     //Getters
     public String getTitle() { return title; }
-
     public String getImage() { return image; }
-
     public String getTime() { return time; }
-
     public boolean isFavorite() { return favorite; }
-
     public String getVideo() { return video; }
-
     public User getCreator() { return creator; }
-
     public String getCategory() { return category; }
-
     public ArrayList<Ingredient> getIngredients() { return ingredients; }
-
     public ArrayList<String> getSteps() { return steps; }
-
 
     //Setters
     public void setTitle(String title) { this.title = title; }
-
     public void setImage(String image) { this.image = image; }
-
     public void setTime(String time) { this.time = time; }
-
     public void setFavorite(boolean favorite) { this.favorite = favorite; }
-
     public void setVideo(String video) { this.video = video; }
-
     public void setCreator(User creator) { this.creator = creator; }
-
     public void setCategory(String category) { this.category = category; }
-
     public void setIngredients(ArrayList<Ingredient> ingredients) { this.ingredients = ingredients; }
-
     public void setSteps(ArrayList<String> steps) { this.steps = steps; }
 }
