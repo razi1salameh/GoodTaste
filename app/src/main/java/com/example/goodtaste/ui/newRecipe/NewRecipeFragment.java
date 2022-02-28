@@ -15,6 +15,9 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.goodtaste.R;
 import com.example.goodtaste.databinding.FragmentNewRecipeBinding;
 
+import java.lang.reflect.Array;
+import java.util.List;
+
 public class NewRecipeFragment extends Fragment {
 
     private FragmentNewRecipeBinding binding;

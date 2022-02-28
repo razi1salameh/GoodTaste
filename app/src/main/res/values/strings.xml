@@ -122,4 +122,13 @@
     <string name="sign_in">Sign In</string>
     <string name="log_in">Log In</string>
     <string name="explore_your_dream_food">Explore your dream food</string>
+    <string name="title">Title</string>
+    <string name="pictures">Pictures</string>
+    <string name="video">Video</string>
+    <string name="category">Category</string>
+    <string name="time">Time</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="steps">Steps</string>
+    <string name="empty_space">empty space</string>
+    <string name="photo">Photo</string>
 </resources>
