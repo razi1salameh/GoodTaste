@@ -135,4 +135,5 @@
     <string name="amt">Amt :</string>
     <string name="unit">Unit :</string>
     <string name="add">Add</string>
+    <string name="add_to_ingredients_list">Add to ingredients\' list</string>
 </resources>

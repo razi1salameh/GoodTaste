@@ -24,6 +24,7 @@
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.2203125" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/drawable/ic_person.xml" value="0.2203125" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/drawable/ic_work.xml" value="0.2203125" />
+        <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/drawable/image_view.xml" value="0.2203125" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/drawable/side_nav_bar.xml" value="0.2203125" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/font/allerta_stencil.xml" value="0.18611111111111112" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/font/diot.xml" value="0.18611111111111112" />
@@ -59,13 +60,15 @@
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout/fragment_grocery_list.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout/fragment_my_recipes.xml" value="0.19010416666666666" />
-        <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout/fragment_new_recipe.xml" value="0.2" />
+        <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout/fragment_new_recipe.xml" value="0.25" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout/fragment_profile.xml" value="0.22" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout/fragment_recipes_main_p.xml" value="0.35260416666666666" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout/fragment_slideshow.xml" value="0.19927536231884058" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout/nav_header_nav_drawer.xml" value="0.25" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout/nav_header_navigation_bar.xml" value="0.19927536231884058" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout/recipe_row.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout/recipe_row_max.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout/recipe_row_min.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout/recipe_row_top.xml" value="0.2" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/menu/activity_main_drawer.xml" value="0.25" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/menu/menu.xml" value="0.20416666666666666" />

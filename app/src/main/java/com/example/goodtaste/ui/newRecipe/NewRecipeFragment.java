@@ -30,6 +30,10 @@ public class NewRecipeFragment extends Fragment {
         return root;
     }
 
+    public void extendIngredientsList(){
+
+    }
+
 
 
     @Override
