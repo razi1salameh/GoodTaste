@@ -12,13 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GoodTaste">
         <activity
+            android:name=".DetailedRecipeActivity"
+            android:exported="true" />
+        <activity
             android:name=".LogInActivity"
             android:exported="true" />
 
         <service
             android:name=".NotificationIntentService"
-            android:exported="false"></service>
-
+            android:exported="false" />
         <service
             android:name=".MusicService"
             android:enabled="true"
@@ -35,6 +37,7 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -54,6 +57,7 @@
             android:name=".NotificationReceiver"
             android:enabled="true"
             android:exported="false" />
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

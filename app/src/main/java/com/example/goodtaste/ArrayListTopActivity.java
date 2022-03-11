@@ -13,7 +13,7 @@ public class ArrayListTopActivity extends AppCompatActivity {
     private ListView listViewOfRecipesFeed;
 
     //the object for the adapter connecting the data tp the view
-    private CustomsAdapter myAdapter;
+    private RecipeCustomsAdapter myAdapter;
 
     //object containing the recipes to be displayed - Data
     private ArrayList<Recipe> list;

@@ -1,8 +1,9 @@
 package com.example.goodtaste;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Recipe {
+public class Recipe implements Serializable {
 
     //properties
     //the name of the recipe
@@ -21,7 +22,7 @@ public class Recipe {
     private String video;
 
     //The recipe's creator
-    private User creator;
+    private String creator;
 
     //The category of the recipe
     private String category;
@@ -32,7 +33,9 @@ public class Recipe {
     //Steps to make the recipe
     private ArrayList<String> steps;
 
-    public Recipe(String title, String image, String time, boolean favorite, String video, User creator, String category, ArrayList<Ingredient> ingredients, ArrayList<String> steps) {
+    private String key;
+
+    public Recipe(String title, String image, String time, boolean favorite, String video, String creator, String category) {
         this.title = title;
         this.image = image;
         this.time = time;
@@ -40,8 +43,8 @@ public class Recipe {
         this.video = video;
         this.creator = creator;
         this.category = category;
-        this.ingredients = ingredients;
-        this.steps = steps;
+        this.ingredients = new ArrayList<>();
+        this.steps = new ArrayList<>();
     }
 
     public Recipe(){ }
@@ -52,7 +55,7 @@ public class Recipe {
     public String getTime() { return time; }
     public boolean isFavorite() { return favorite; }
     public String getVideo() { return video; }
-    public User getCreator() { return creator; }
+    public String getCreator() { return creator; }
     public String getCategory() { return category; }
     public ArrayList<Ingredient> getIngredients() { return ingredients; }
     public ArrayList<String> getSteps() { return steps; }
@@ -63,8 +66,16 @@ public class Recipe {
     public void setTime(String time) { this.time = time; }
     public void setFavorite(boolean favorite) { this.favorite = favorite; }
     public void setVideo(String video) { this.video = video; }
-    public void setCreator(User creator) { this.creator = creator; }
+    public void setCreator(String creator) { this.creator = creator; }
     public void setCategory(String category) { this.category = category; }
     public void setIngredients(ArrayList<Ingredient> ingredients) { this.ingredients = ingredients; }
     public void setSteps(ArrayList<String> steps) { this.steps = steps; }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
 }

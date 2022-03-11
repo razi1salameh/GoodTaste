@@ -5,10 +5,13 @@
       <map>
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/drawable-anydpi/ic_profile.xml" value="0.24739583333333334" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2203125" />
+        <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/drawable/back_rounded_corner.xml" value="0.2203125" />
+        <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/drawable/black_rounded_corner.xml" value="0.3828125" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/drawable/btn.xml" value="0.20625" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/drawable/button_bg_design.xml" value="0.2203125" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/drawable/edit_text_corner.xml" value="0.2203125" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/drawable/foregrount_design.xml" value="0.14" />
+        <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/drawable/ic_123.xml" value="0.20625" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/drawable/ic_account.xml" value="0.2203125" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/drawable/ic_add.xml" value="0.2203125" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/drawable/ic_add_circle.xml" value="0.2203125" />
@@ -16,6 +19,9 @@
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/drawable/ic_edit.xml" value="0.2203125" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/drawable/ic_email.xml" value="0.2203125" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/drawable/ic_exit.xml" value="0.2203125" />
+        <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/drawable/ic_expand_less.xml" value="0.20625" />
+        <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/drawable/ic_expand_more.xml" value="0.20625" />
+        <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/drawable/ic_format_list_numbered.xml" value="0.20625" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/drawable/ic_home.xml" value="0.11944444444444445" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2203125" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/drawable/ic_lock.xml" value="0.2203125" />
@@ -25,6 +31,7 @@
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/drawable/ic_person.xml" value="0.2203125" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/drawable/ic_work.xml" value="0.2203125" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/drawable/image_view.xml" value="0.2203125" />
+        <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/drawable/image_view_background.xml" value="0.3828125" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/drawable/side_nav_bar.xml" value="0.2203125" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/font/allerta_stencil.xml" value="0.18611111111111112" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/font/diot.xml" value="0.18611111111111112" />
@@ -36,6 +43,7 @@
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout-w936dp/content_scrolling.xml" value="0.275" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout/activity_array_list.xml" value="0.33" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout/activity_array_list_top.xml" value="0.2006340579710145" />
+        <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout/activity_detailed_recipe.xml" value="0.22" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout/activity_log_in.xml" value="0.25" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout/activity_nav_drawer.xml" value="0.19583333333333333" />
@@ -48,6 +56,7 @@
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout/content_nav_drawer.xml" value="0.22" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout/content_navigation_bar.xml" value="0.19927536231884058" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout/content_scrolling.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout/deailed_recipe_demo.xml" value="0.25" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout/fragment_add_friend.xml" value="0.1" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout/fragment_edit_profile.xml" value="0.19655797101449277" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout/fragment_fav_accounts.xml" value="0.20416666666666666" />
@@ -60,7 +69,7 @@
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout/fragment_grocery_list.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout/fragment_my_recipes.xml" value="0.19010416666666666" />
-        <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout/fragment_new_recipe.xml" value="0.25" />
+        <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout/fragment_new_recipe.xml" value="0.2" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout/fragment_profile.xml" value="0.22" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout/fragment_recipes_main_p.xml" value="0.35260416666666666" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout/fragment_slideshow.xml" value="0.19927536231884058" />
@@ -68,7 +77,7 @@
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout/nav_header_navigation_bar.xml" value="0.19927536231884058" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout/recipe_row.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout/recipe_row_max.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout/recipe_row_min.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout/recipe_row_min.xml" value="0.25" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/layout/recipe_row_top.xml" value="0.2" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/menu/activity_main_drawer.xml" value="0.25" />
         <entry key="..\:/Users/rami_/AndroidStudioProjects/GoodTaste2/app/src/main/res/menu/menu.xml" value="0.20416666666666666" />

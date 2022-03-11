@@ -136,4 +136,8 @@
     <string name="unit">Unit :</string>
     <string name="add">Add</string>
     <string name="add_to_ingredients_list">Add to ingredients\' list</string>
+
+    <string name="dot_loading">...</string>
+    <string name="instructions">Instructions</string>
+    <string name="creator">Creator</string>
 </resources>
