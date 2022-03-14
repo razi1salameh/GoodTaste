@@ -2,7 +2,9 @@ package com.example.goodtaste;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -30,6 +32,23 @@ public class DetailedRecipeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detailed_recipe);
 
         Recipe recipe = (Recipe) getIntent().getSerializableExtra("recipe");
+
+        imageViewExpandedRecipePicture = findViewById(R.id.imageViewRecipePicture);
+        textViewExpandedRecipeCategory  = findViewById(R.id.textViewExpandedRecipeCategory);
+        textViewExpandedRecipeTime = findViewById(R.id.textViewExpandedRecipeTime);
+        textViewExpandedRecipeCreator = findViewById(R.id.textViewExpandedRecipeCreator);
+        textViewExpandedRecipeVideo = findViewById(R.id.textViewExpandedRecipeVideo);
+        textViewExpandedRecipeIngredients = findViewById(R.id.textViewExpandedRecipeIngredients);
+        textViewExpandedRecipeInstruction = findViewById(R.id.textViewExpandedRecipeInstruction);
+        textViewExpandedRecipeAddToFavorites = findViewById(R.id.textViewExpandedRecipeAddToFavorites);
+        ImageButtonSeeLess = findViewById(R.id.ImageButtonSeeLess);
+
+      //  ImageButtonSeeLess.setOnClickListener();
+
+
+        if(recipe!=null){
+            textViewExpandedRecipeCategory.setText(recipe.getCategory());
+        }
 
     }
 

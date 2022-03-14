@@ -14,7 +14,7 @@
     <color name="light_green">#8A9A5B</color>
     <color name="dark_green">#014421</color>
 
-    <color name="colorPrimary">#85001F</color>
+    <color name="red">#85001F</color>
     <color name="colorPrimaryDark">#630118</color>
     <color name="colorAccent">#D8211B</color>
     <color name="colorNull">#00000000</color>

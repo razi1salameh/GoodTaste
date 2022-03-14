@@ -31,6 +31,7 @@ public class RecipeCustomsAdapter extends ArrayAdapter<Recipe> {
         if (view == null)
             view = LayoutInflater.from(context).inflate(resource, parent, false);
         Recipe recipe = getItem(position); //method from the android studio not related to the item object
+
         if (recipe != null) {
             TextView textViewRowName = view.findViewById(R.id.textViewRowName);
             ImageView imageViewRecipePicture = view.findViewById(R.id.imageViewRecipePicture);
