@@ -30,7 +30,8 @@ public class RecipeCustomsAdapter extends ArrayAdapter<Recipe> {
         View view = convertView;
         if (view == null)
             view = LayoutInflater.from(context).inflate(resource, parent, false);
-        Recipe recipe = getItem(position); //method from the android studio not related to the item object
+
+        Recipe recipe = getItem(position); //method from the android studio not related to the object recipe
 
         if (recipe != null) {
             TextView textViewRowName = view.findViewById(R.id.textViewRowName);
@@ -39,6 +40,8 @@ public class RecipeCustomsAdapter extends ArrayAdapter<Recipe> {
             TextView textViewRowTime = view.findViewById(R.id.textViewRowTime);
             TextView textViewRowPerson = view.findViewById(R.id.textViewRowPerson);
             TextView textViewRowVideo = view.findViewById(R.id.textViewRowVideo);
+
+            //for the this text view need to create the method the is "onClick" in the xml not sure if here or in ArrayListActivity
             TextView textViewRowFavorites = view.findViewById(R.id.textViewRowFavorites);
             ImageButton seeMoreImageButton = view.findViewById(R.id.ImageButtonSeeMore);
 
@@ -46,14 +49,25 @@ public class RecipeCustomsAdapter extends ArrayAdapter<Recipe> {
                 @Override
                 public void onClick(View view) {
                     Intent i = new Intent(context, DetailedRecipeActivity.class);
-                    i.putExtra("recipe",recipe);
+                    i.putExtra("Recipe",recipe);
                     context.startActivity(i);
                 }
             });
             //NEED TO ADD THE OTHER PROPERTIES OT THE OBJECT AND ADD THE OBJECT USER (CREATOR)
             textViewRowName.setText(recipe.getTitle());
+            //need to add the methods Bitmap --> String & String --> Bitmap
+            //imageViewRecipePicture.setImageBitmap(stringToBitmap(recipe.getImage()));
+            textViewRowCategory.setText(recipe.getCategory());
+            textViewRowTime.setText(recipe.getTime());
+            textViewRowPerson.setText(recipe.getCreator());
+            textViewRowVideo.setText(recipe.getVideo());
         }
         return view;
+    }
+
+    //Need to add a cope of the object to I can add it later on in the arrayList of the favorites list in "Favorite recipes" page;
+    public void addToFavoritesPage(){
+        Recipe copyOfFavoriteRecipe = new Recipe();
     }
 }
 

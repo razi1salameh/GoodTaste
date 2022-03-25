@@ -1,5 +1,11 @@
 package com.example.goodtaste;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
+
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -69,6 +75,7 @@ public class Recipe implements Serializable {
         this.key = key;
     }
 
+
     //Turn the arrayList of ingredients into a whole string in oder to store in in DB
     public String ArrayOfIngredientsToString (ArrayList<Ingredient> ai){
         String str = "";
@@ -76,6 +83,21 @@ public class Recipe implements Serializable {
             str += ai.get(i).ingredientToString();
         }
         return str;
+    }
+
+
+    //this function turns the image of type string to bitmap
+    public Bitmap stringToBitmap(String image){
+        try{
+            byte [] encodeByte= Base64.decode(image, Base64.DEFAULT);
+
+            InputStream inputStream  = new ByteArrayInputStream(encodeByte);
+            Bitmap bitmap  = BitmapFactory.decodeStream(inputStream);
+            return bitmap;
+        }catch(Exception e){
+            e.getMessage();
+            return null;
+        }
     }
 
 }

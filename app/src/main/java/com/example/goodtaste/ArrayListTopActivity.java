@@ -18,6 +18,8 @@ public class ArrayListTopActivity extends AppCompatActivity {
     //object containing the recipes to be displayed - Data
     private ArrayList<Recipe> list;
 
+    //the video of howto build the the arraylist activity of users
+    //https://www.youtube.com/watch?v=joyKAkTX8nQ
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

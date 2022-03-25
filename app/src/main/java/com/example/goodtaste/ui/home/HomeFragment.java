@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.goodtaste.RecipeCustomsAdapter;
 import com.example.goodtaste.Recipe;
+import com.example.goodtaste.User;
 import com.example.goodtaste.databinding.FragmentHomeBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -20,11 +21,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
-
+    private List<Recipe> recipes;
 
     //the object of the view - design
     private ListView listViewOfRecipesFeed;

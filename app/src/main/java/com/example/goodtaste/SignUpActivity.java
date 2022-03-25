@@ -43,6 +43,7 @@ public class SignUpActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
     }
 
+
     public void Submit(View view) {
         signup(editTextEmail.getText().toString(), editTextPassword.getText().toString());
     }

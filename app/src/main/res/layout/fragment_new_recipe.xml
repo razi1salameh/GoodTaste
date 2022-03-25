@@ -44,7 +44,7 @@
             app:layout_constraintWidth_percent=".8" />
 
         <TextView
-            android:id="@+id/textViewTimeFrame"
+            android:id="@+id/textViewRecipesTimeFrame"
             android:layout_width="380dp"
             android:layout_height="100dp"
             android:layout_marginTop="24dp"
@@ -65,7 +65,7 @@
             android:textColor="@color/white"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textViewTimeFrame"
+            app:layout_constraintTop_toTopOf="@+id/textViewRecipesTimeFrame"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewRecipesVideoFrame"
@@ -82,9 +82,10 @@
             android:drawablePadding="13dp"
             android:textAlignment="center"
             android:textColor="@color/white"
+            android:inputType="number"
             android:textColorHint="@color/grayText"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textViewTimeFrame"
+            app:layout_constraintTop_toTopOf="@+id/textViewRecipesTimeFrame"
             app:layout_constraintHorizontal_bias="0.1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewRecipesVideoFrame"
@@ -100,7 +101,7 @@
             android:textColor="@color/white"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textViewTimeFrame"
+            app:layout_constraintTop_toTopOf="@+id/textViewRecipesTimeFrame"
             app:layout_constraintHorizontal_bias="0.61"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewRecipesVideoFrame"
@@ -118,8 +119,9 @@
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textColorHint="@color/grayText"
+            android:inputType="number"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textViewTimeFrame"
+            app:layout_constraintTop_toTopOf="@+id/textViewRecipesTimeFrame"
             app:layout_constraintHorizontal_bias="0.82"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewRecipesVideoFrame"
@@ -138,11 +140,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.419"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewTimeFrame"
+            app:layout_constraintTop_toBottomOf="@+id/textViewRecipesTimeFrame"
             app:layout_constraintWidth_percent=".8" />
 
-        <TextView
-            android:id="@+id/textViewRecipesBackPicture"
+        <ImageView
+            android:id="@+id/imageViewRecipesBackPicture"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginTop="12dp"
@@ -171,7 +173,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.109"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textViewRecipesBackPicture"
+            app:layout_constraintTop_toTopOf="@+id/imageViewRecipesBackPicture"
             app:layout_constraintVertical_bias="0.002" />
 
         <TextView
@@ -190,8 +192,8 @@
             app:layout_constraintTop_toBottomOf="@+id/textViewRecipesPictureFrame"
             app:layout_constraintWidth_percent=".8" />
 
-        <TextView
-            android:id="@+id/textViewRecipesBackVideo"
+        <ImageView
+            android:id="@+id/imageViewRecipesBackVideo"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginTop="10dp"
@@ -220,14 +222,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.109"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textViewRecipesBackVideo"
+            app:layout_constraintTop_toTopOf="@+id/imageViewRecipesBackVideo"
             app:layout_constraintVertical_bias="0.0" />
 
         <TextView
-            android:id="@+id/textViewCategoryFrame"
+            android:id="@+id/textViewRecipesCategoryFrame"
             android:layout_width="380dp"
             android:layout_height="100dp"
             android:layout_marginTop="25dp"
+            android:layout_marginBottom="25dp"
             android:background="@drawable/black_rounded_corner"
             android:backgroundTint="@color/gray1"
             app:layout_constraintEnd_toEndOf="parent"
@@ -244,7 +247,7 @@
             android:textColor="@color/white"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textViewCategoryFrame"
+            app:layout_constraintTop_toTopOf="@+id/textViewRecipesCategoryFrame"
             app:layout_constraintHorizontal_bias="0.14"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewRecipesVideoFrame"
@@ -263,99 +266,81 @@
             android:textAlignment="center"
             android:textColorHint="@color/grayText"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textViewCategoryFrame"
+            app:layout_constraintTop_toTopOf="@+id/textViewRecipesCategoryFrame"
             app:layout_constraintHorizontal_bias="0.6"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewRecipesVideoFrame"
             app:layout_constraintWidth_percent=".8" />
 
-        <TextView
-            android:id="@+id/textViewIngredientsFrame"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayoutIngredientsListFrame"
             android:layout_width="380dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:padding="120dp"
+            android:padding="30dp"
             android:background="@drawable/black_rounded_corner"
             android:backgroundTint="@color/gray1"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.419"
+            app:layout_constraintHorizontal_bias="0.483"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewCategoryFrame" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewRecipesCategoryFrame">
+
+            <TextView
+                android:id="@+id/textViewRecipesIngredientsList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/black_rounded_corner"
+                android:backgroundTint="@color/gray2"
+                android:layout_marginLeft="5dp"
+                android:padding="10dp"
+                android:text="______"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/constraintLayoutIngredientsListFrame"
+                app:layout_constraintWidth_percent=".8" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
-            android:id="@+id/textViewRecipesIngredientsList"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
+            android:id="@+id/textViewRecipesIngredientsFrame"
+            android:layout_width="380dp"
+            android:layout_height="300dp"
             android:background="@drawable/black_rounded_corner"
-            android:backgroundTint="@color/gray2"
-            app:layout_constraintBottom_toTopOf="@+id/editTextRecipesIngredientsName"
-            app:layout_constraintEnd_toEndOf="@+id/textViewIngredientsFrame"
-            app:layout_constraintHorizontal_bias="0.666"
-            app:layout_constraintStart_toStartOf="@+id/textViewIngredientsFrame"
-            app:layout_constraintTop_toTopOf="@+id/textViewIngredientsFrame"
-            app:layout_constraintVertical_bias="0.5"
-            app:layout_constraintWidth_percent=".8" />
+            android:backgroundTint="@color/gray1"
+            android:padding="120dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayoutIngredientsListFrame" />
 
         <EditText
             android:id="@+id/editTextRecipesIngredientsName"
             android:layout_width="350dp"
             android:layout_height="50dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="50dp"
             android:backgroundTint="@color/gray1"
-            android:drawablePadding="13dp"
             android:hint="@string/ingredient"
             android:textColor="@color/white"
             android:textColorHint="@color/grayText"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textViewIngredientsFrame"
-            app:layout_constraintHorizontal_bias="0.1"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/textViewRecipesIngredientsUnit"
+            app:layout_constraintEnd_toEndOf="@+id/textViewRecipesIngredientsFrame"
+            app:layout_constraintHorizontal_bias="0.466"
+            app:layout_constraintStart_toStartOf="@+id/textViewRecipesIngredientsFrame"
+            app:layout_constraintTop_toTopOf="@id/textViewRecipesIngredientsFrame"
+            app:layout_constraintVertical_bias="0.3"
             app:layout_constraintWidth_percent=".8" />
 
         <TextView
             android:id="@+id/textViewRecipesIngredientsAmount"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="125dp"
-            android:text="@string/unit"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textViewIngredientsFrame"
-            app:layout_constraintHorizontal_bias="0.61"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintWidth_percent=".8" />
-
-        <EditText
-            android:id="@+id/editTextRecipesIngredientsUnit"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="110dp"
-            android:background="@drawable/black_rounded_corner"
-            android:backgroundTint="@color/gray2"
-            android:drawablePadding="13dp"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textColorHint="@color/grayText"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.848"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textViewIngredientsFrame"
-            app:layout_constraintWidth_percent=".8" />
-
-        <TextView
-            android:id="@+id/textViewRecipesIngredientsUnit"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="125dp"
+            android:layout_marginTop="150dp"
             android:text="@string/amt"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textViewIngredientsFrame"
+            app:layout_constraintTop_toTopOf="@+id/textViewRecipesIngredientsFrame"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintWidth_percent=".8" />
@@ -365,35 +350,68 @@
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="110dp"
+            android:layout_marginTop="135dp"
             android:background="@drawable/black_rounded_corner"
             android:backgroundTint="@color/gray2"
             android:textColor="@color/white"
             android:textAlignment="center"
             android:textColorHint="@color/grayText"
+            android:inputType="number"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textViewIngredientsFrame"
+            app:layout_constraintTop_toTopOf="@+id/textViewRecipesIngredientsFrame"
             app:layout_constraintHorizontal_bias="0.1"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintWidth_percent=".8" />
+
+        <TextView
+            android:id="@+id/textViewRecipesIngredientsUnit"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="150dp"
+            android:text="@string/unit"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textViewRecipesIngredientsFrame"
+            app:layout_constraintHorizontal_bias="0.61"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintWidth_percent=".8" />
+
+        <EditText
+            android:id="@+id/editTextRecipesIngredientsUnit"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="135dp"
+            android:background="@drawable/black_rounded_corner"
+            android:backgroundTint="@color/gray2"
+            android:drawablePadding="13dp"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textColorHint="@color/grayText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.848"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textViewRecipesIngredientsFrame"
             app:layout_constraintWidth_percent=".8" />
 
         <TextView
             android:id="@+id/textViewRecipesIngredientsDelete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="190dp"
             android:background="@drawable/ic_delete"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.07"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textViewIngredientsFrame"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewRecipesIngredientsFrame"
+            app:layout_constraintEnd_toStartOf="@+id/buttonAddIngredients"
+            app:layout_constraintStart_toStartOf="@+id/textViewRecipesIngredientsFrame"
+            app:layout_constraintTop_toTopOf="@+id/textViewRecipesIngredientsFrame"
+            app:layout_constraintVertical_bias="0.903"
             app:layout_constraintWidth_percent=".8" />
 
         <Button
             android:id="@+id/buttonAddIngredients"
             android:layout_width="290dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="165dp"
+            android:layout_marginEnd="24dp"
             android:background="@drawable/black_rounded_corner"
             android:backgroundTint="@color/black"
             android:drawableLeft="@drawable/ic_add_circle"
@@ -402,41 +420,42 @@
             android:text="@string/add_to_ingredients_list"
             android:textColor="@color/white"
             android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.702"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textViewIngredientsFrame"
-            app:layout_constraintVertical_bias="0.069" />
+            app:layout_constraintBottom_toBottomOf="@+id/textViewRecipesIngredientsFrame"
+            app:layout_constraintEnd_toEndOf="@+id/textViewRecipesIngredientsFrame"
+            app:layout_constraintTop_toTopOf="@+id/textViewRecipesIngredientsFrame"
+            app:layout_constraintVertical_bias="0.931" />
 
-        <TextView
-            android:id="@+id/textViewStepsFrame"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayoutStepsFrame"
             android:layout_width="380dp"
-            android:layout_height="80dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
+            android:padding="30dp"
             android:background="@drawable/black_rounded_corner"
             android:backgroundTint="@color/gray1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.483"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewIngredientsFrame" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewRecipesIngredientsFrame">
 
-        <EditText
-            android:id="@+id/editTextRecipesSteps"
-            android:layout_width="350dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="15dp"
-            android:backgroundTint="@color/gray1"
-            android:drawablePadding="13dp"
-            android:hint="@string/steps"
-            android:textColor="@color/white"
-            android:textColorHint="@color/grayText"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textViewStepsFrame"
-            app:layout_constraintHorizontal_bias="0.1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintWidth_percent=".8" />
+            <EditText
+                android:id="@+id/editTextRecipesSteps"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/gray1"
+                android:layout_marginLeft="5dp"
+                android:hint="@string/steps"
+                android:padding="10dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grayText"
+                app:layout_constraintBottom_toBottomOf="@+id/constraintLayoutStepsFrame"
+                app:layout_constraintEnd_toEndOf="@+id/constraintLayoutStepsFrame"
+                app:layout_constraintStart_toStartOf="@+id/constraintLayoutStepsFrame"
+                app:layout_constraintTop_toTopOf="@+id/constraintLayoutStepsFrame"
+                app:layout_constraintVertical_bias="0.56"
+                app:layout_constraintWidth_percent=".8" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <Button
             android:id="@+id/buttonCreateRecipe"
@@ -449,7 +468,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewStepsFrame"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayoutStepsFrame"
             app:layout_constraintVertical_bias="0.5" />
 
         <TextView
@@ -464,6 +483,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/buttonCreateRecipe"
             app:layout_constraintVertical_bias="0.3" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

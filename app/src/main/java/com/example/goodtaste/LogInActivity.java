@@ -4,8 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -50,6 +52,19 @@ public class LogInActivity extends AppCompatActivity {
 
         //this gets the reference of the dataBase in the cloud
         firebaseAuth = FirebaseAuth.getInstance();
+
+
+        SharedPreferences sp = getSharedPreferences("settings",MODE_PRIVATE);
+        //saving the user's info in variables
+        String email = sp.getString("Email","abc@gmail.com");
+        String password = sp.getString("Password", "123456");
+
+        //checking if the values are null in order to fill them
+        if(!email.equals("") && !password.equals("")) {
+            editTextEmail.setText(email);
+            editTextPassword.setText(password);
+
+        }
     }
 
 

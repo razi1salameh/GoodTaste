@@ -43,7 +43,7 @@ public class DetailedRecipeActivity extends AppCompatActivity {
         textViewExpandedRecipeAddToFavorites = findViewById(R.id.textViewExpandedRecipeAddToFavorites);
         ImageButtonSeeLess = findViewById(R.id.ImageButtonSeeLess);
 
-      //  ImageButtonSeeLess.setOnClickListener();
+        //ImageButtonSeeLess.setOnClickListener();
 
 
         if(recipe!=null){
