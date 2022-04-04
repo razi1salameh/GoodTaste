@@ -2,11 +2,13 @@ package com.example.goodtaste.ui.newRecipe;
 
 import static android.app.Activity.RESULT_OK;
 
+import android.Manifest;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -17,18 +19,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 
 import com.example.goodtaste.DetailedRecipeActivity;
 import com.example.goodtaste.Ingredient;
 import com.example.goodtaste.R;
 import com.example.goodtaste.Recipe;
-import com.example.goodtaste.User;
 import com.example.goodtaste.databinding.FragmentNewRecipeBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -36,9 +37,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.FileNotFoundException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 
 public class NewRecipeFragment extends Fragment {
 
@@ -55,6 +54,7 @@ public class NewRecipeFragment extends Fragment {
     private FirebaseDatabase  db;
     private ArrayList<Ingredient> ingredients;
     private String ingredientString ="";
+    private static boolean removeTextView = false;
     private static int numOfIngredient = 1 ;
     private static final int CAMERA_REQUEST = 0;
     private static final int GALLERY_REQUEST = 1;
@@ -94,9 +94,12 @@ public class NewRecipeFragment extends Fragment {
         textViewRecipesPicture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                textViewRecipesPicture.setVisibility(View.INVISIBLE);
-                Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(i, CAMERA_REQUEST);
+                selectImage();
+                if (removeTextView) {
+                    textViewRecipesPicture.setVisibility(View.INVISIBLE);
+                }
+//                Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//                startActivityForResult(i, CAMERA_REQUEST);
 
             }
         });
@@ -172,12 +175,42 @@ public class NewRecipeFragment extends Fragment {
     }
 
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
-    }
+    // Select image from camera and gallery
+    private void selectImage() {
+        try {
+            PackageManager pm = getActivity().getPackageManager();
+            int hasPerm = pm.checkPermission(Manifest.permission.CAMERA, getActivity().getPackageName());
 
+            /** NEED TO FIGURE OUT WHAT IS THE PROBLEM HERE **/
+            if (hasPerm == PackageManager.PERMISSION_GRANTED) {
+                final CharSequence[] options = {"Take Photo", "Choose From Gallery","Cancel"};
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                builder.setTitle("Select Option");
+                builder.setItems(options, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int item) {
+                        if (options[item].equals("Take Photo")) {
+                            dialog.dismiss();
+                            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                            startActivityForResult(intent, CAMERA_REQUEST);
+                        } else if (options[item].equals("Choose From Gallery")) {
+                            dialog.dismiss();
+                            Intent pickPhoto = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                            startActivityForResult(pickPhoto, GALLERY_REQUEST);
+                        } else if (options[item].equals("Cancel")) {
+                            dialog.dismiss();
+                        }
+                    }
+                });
+                builder.show();
+            }
+            else
+                Toast.makeText(getContext(), "Camera Permission error", Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            Toast.makeText(getContext(), "Camera Permission error", Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+        }
+    }
 
 
     @Override
@@ -188,6 +221,7 @@ public class NewRecipeFragment extends Fragment {
                 Bitmap picture = (Bitmap) data.getExtras().get("data");
                 //set image captured to be the new image
                 imageViewRecipesBackPicture.setImageBitmap(picture);
+                removeTextView = true;
             }
             else{
                 if(resultCode == RESULT_OK){
@@ -196,6 +230,7 @@ public class NewRecipeFragment extends Fragment {
                         //Decode an input stream into bitmap
                         Bitmap picture = BitmapFactory.decodeStream(context.getContentResolver().openInputStream(targetUri));
                         imageViewRecipesBackPicture.setImageBitmap(picture);
+                        removeTextView = true;
 
                     } catch (FileNotFoundException e){
                         e.printStackTrace();
@@ -203,6 +238,13 @@ public class NewRecipeFragment extends Fragment {
                 }
             }
         }
+    }
+
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
     }
   }
   

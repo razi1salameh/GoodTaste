@@ -1,5 +1,6 @@
 package com.example.goodtaste.ui.home;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,10 +9,13 @@ import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.goodtaste.RecipeCustomsAdapter;
+import com.example.goodtaste.CardViewAdapterMinRecipe;
+import com.example.goodtaste.R;
 import com.example.goodtaste.Recipe;
-import com.example.goodtaste.User;
 import com.example.goodtaste.databinding.FragmentHomeBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -26,15 +30,11 @@ import java.util.List;
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
-    private List<Recipe> recipes;
-
-    //the object of the view - design
-    private ListView listViewOfRecipesFeed;
-    //the object for the adapter connecting the data tp the view
-    private RecipeCustomsAdapter recipeAdapter;
-    //object containing the recipes to be displayed - Data
-    private ArrayList<Recipe> list;
-
+    private List<Recipe> recipes = new ArrayList<>();
+    private RecyclerView recyclerView;
+    private CardViewAdapterMinRecipe adapter;
+    private Recipe temp;
+    private Context context;
 
     //get instance of Authentication PROJECT IN FB console
     private FirebaseAuth maFirebaseAuth = FirebaseAuth.getInstance();
@@ -50,12 +50,29 @@ public class HomeFragment extends Fragment {
         //build a ref for user related data in real time DB using UID
         DatabaseReference myRef = database.getReference("Users");
 
+        recyclerView = root.findViewById(R.id.recyclerViewMinRecipeList);
+        //String imageChange = (String)(R.drawable.Rice);
+
+        temp = new Recipe("Rice",   "R.drawable.Rice", "00:30", "true", "TheVideo", "Salty");
+
+
+        recipes.add(temp);
+        recipes.add(temp);
+        recipes.add(temp);
+        recipes.add(temp);
+
         //build the item you want to push into the FB
         //User u1 = new
         //Recipe re1 = new Recipe("rice", "TheIMAGE", "00:30", true, "TheVideo", new User());
 
         //adds an item to the FB under the referenced specified
         //myRef.push().setValue(re1);
+
+        adapter = new CardViewAdapterMinRecipe(getContext(), recipes);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 1, LinearLayoutManager.VERTICAL, false);
+        recyclerView.setLayoutManager(gridLayoutManager);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setAdapter(adapter);
 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -70,7 +87,6 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        /** The Array list **/
 
 
         return root;

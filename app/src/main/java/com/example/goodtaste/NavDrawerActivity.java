@@ -55,6 +55,7 @@ public class NavDrawerActivity extends AppCompatActivity implements DialogInterf
         Intent notifyIntent = new Intent(this,NotificationReceiver.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(this, NOTIFICATION_REMINDER_NIGHT, notifyIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         AlarmManager alarmManager = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
+        //alarmManager.set(AlarmManager.RTC_WAKEUP, 100, pendingIntent); add need to add it in the button when the user adds new recipe
         alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(),
                 1000 * 60 * 2, pendingIntent);
     }

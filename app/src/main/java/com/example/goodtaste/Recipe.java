@@ -5,6 +5,7 @@ import android.graphics.BitmapFactory;
 import android.util.Base64;
 
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -86,18 +87,28 @@ public class Recipe implements Serializable {
     }
 
 
-    //this function turns the image of type string to bitmap
-    public Bitmap stringToBitmap(String image){
-        try{
+    //this function turns the image from string type to bitmap
+    public static Bitmap stringToBitmap(String image){
+        try {
             byte [] encodeByte= Base64.decode(image, Base64.DEFAULT);
-
             InputStream inputStream  = new ByteArrayInputStream(encodeByte);
             Bitmap bitmap  = BitmapFactory.decodeStream(inputStream);
             return bitmap;
-        }catch(Exception e){
+        }
+
+        catch(Exception e) {
             e.getMessage();
             return null;
         }
     }
 
+
+    //this function turns the image from string type to bitmap
+    public static String bitmapToString(Bitmap image){
+        ByteArrayOutputStream baos = new  ByteArrayOutputStream();
+        image.compress(Bitmap.CompressFormat.PNG,100, baos);
+        byte [] b = baos.toByteArray();
+        String temp = Base64.encodeToString(b, Base64.DEFAULT);
+        return temp;
+    }
 }
