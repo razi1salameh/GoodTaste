@@ -28,6 +28,8 @@ import androidx.fragment.app.Fragment;
 
 import com.example.goodtaste.DetailedRecipeActivity;
 import com.example.goodtaste.Ingredient;
+import com.example.goodtaste.LogInActivity;
+import com.example.goodtaste.NavDrawerActivity;
 import com.example.goodtaste.R;
 import com.example.goodtaste.Recipe;
 import com.example.goodtaste.databinding.FragmentNewRecipeBinding;
@@ -41,7 +43,7 @@ import java.util.ArrayList;
 
 public class NewRecipeFragment extends Fragment {
 
-    private TextView textViewRecipesPicture, textViewRecipesVideo, textViewRecipesIngredientsList;
+    private TextView textViewRecipesPicture, textViewRecipesVideo, textViewRecipesIngredientsList, textViewRecipesIngredientsDelete;
     private ImageView imageViewRecipesBackPicture, imageViewRecipesBackVideo;
     private EditText editTextRecipesName, editTextRecipesHours, editTextRecipesMinutes, editTextRecipesCategory;
     private EditText editTextRecipesIngredientsName, editTextRecipesIngredientsAmount, editTextRecipesIngredientsUnit;
@@ -53,13 +55,14 @@ public class NewRecipeFragment extends Fragment {
     private DatabaseReference reference;
     private FirebaseDatabase  db;
     private ArrayList<Ingredient> ingredients;
-    private String ingredientString ="";
+    private String oneIngredient ="";
+    private String updateView = "";
     private static boolean removeTextView = false;
     private static int numOfIngredient = 1 ;
     private static final int CAMERA_REQUEST = 0;
     private static final int GALLERY_REQUEST = 1;
     private Context context;
-
+    private Bitmap image;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentNewRecipeBinding.inflate(inflater, container, false);
@@ -76,6 +79,7 @@ public class NewRecipeFragment extends Fragment {
 
         textViewRecipesPicture = root.findViewById(R.id.textViewRecipesPicture);
         textViewRecipesVideo = root.findViewById(R.id.textViewRecipesVideo);
+        textViewRecipesIngredientsDelete = root.findViewById(R.id.textViewRecipesIngredientsDelete);
         imageViewRecipesBackPicture = root.findViewById(R.id.imageViewRecipesBackPicture);
         imageViewRecipesBackVideo = root.findViewById(R.id.imageViewRecipesBackVideo);
         editTextRecipesName = root.findViewById(R.id.editTextRecipesName);
@@ -98,9 +102,6 @@ public class NewRecipeFragment extends Fragment {
                 if (removeTextView) {
                     textViewRecipesPicture.setVisibility(View.INVISIBLE);
                 }
-//                Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-//                startActivityForResult(i, CAMERA_REQUEST);
-
             }
         });
 
@@ -118,16 +119,36 @@ public class NewRecipeFragment extends Fragment {
         buttonAddIngredients.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Ingredient ing = new Ingredient(editTextRecipesIngredientsName.getText().toString(),
-                        Double.parseDouble(editTextRecipesIngredientsAmount.getText().toString()),
-                        editTextRecipesIngredientsUnit.getText().toString() );
-                ingredients.add(ing);
-                ingredientString += numOfIngredient+". "+ing.ingredientToString()+"\n";
-                textViewRecipesIngredientsList.setText(ingredientString);
-                numOfIngredient ++;
-                editTextRecipesName.setText(" ");
-                editTextRecipesIngredientsAmount.setText(" ");
-                editTextRecipesIngredientsUnit.setText(" ");
+                if(!editTextRecipesIngredientsName.getText().toString().equals("") && !editTextRecipesIngredientsAmount.getText().toString().equals("") && !editTextRecipesIngredientsUnit.getText().toString().equals("")) {
+                    Ingredient ing = new Ingredient(editTextRecipesIngredientsName.getText().toString(),
+                            Double.parseDouble(editTextRecipesIngredientsAmount.getText().toString()),
+                            editTextRecipesIngredientsUnit.getText().toString());
+
+                    ingredients.add(ing);
+                    oneIngredient += numOfIngredient + ". " + ing.ingredientToString() + "\n";
+                    textViewRecipesIngredientsList.setText(oneIngredient);
+                    numOfIngredient++;
+                    editTextRecipesIngredientsName.getText().clear();
+                    editTextRecipesIngredientsAmount.getText().clear();
+                    editTextRecipesIngredientsUnit.getText().clear();
+                }
+                else
+                    Toast.makeText(getContext(), "Make sure all fields of the ingredients are filled", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        //this button deletes the last ingredient that was added
+        textViewRecipesIngredientsDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(ingredients != null){
+                    numOfIngredient = numOfIngredient - 2;
+                    ingredients.remove(numOfIngredient);
+                    for (int i=1 ; i<=numOfIngredient ; i++){
+                        updateView += i +"." + ingredients.get(i).ingredientToString() + "\n" ;
+                    }
+                    textViewRecipesIngredientsList.setText(updateView);
+                }
             }
         });
 
@@ -146,8 +167,16 @@ public class NewRecipeFragment extends Fragment {
     //this function merges the time into one string
     public String mergeTime(){
         String totalTime = "";
-        totalTime += editTextRecipesHours.getText().toString();
-        totalTime += editTextRecipesMinutes.getText().toString();
+        if(!editTextRecipesHours.getText().toString().equals(""))
+            totalTime += editTextRecipesHours.getText().toString() +":";
+        else
+            totalTime += "00:";
+
+        if(!editTextRecipesMinutes.getText().toString().equals(""))
+            totalTime += editTextRecipesMinutes.getText().toString();
+        else
+            totalTime += "00";
+
         return totalTime;
     }
 
@@ -159,7 +188,8 @@ public class NewRecipeFragment extends Fragment {
         String key = reference.push().getKey();
 
         recipe.setTitle(editTextRecipesName.getText().toString());
-        recipe.setImage(textViewRecipesPicture.getText().toString());
+        if(image != null)
+            recipe.setImage(recipe.bitmapToString(image));
         recipe.setTime(mergeTime());
         recipe.setVideo(textViewRecipesVideo.getText().toString());
         recipe.setCreator(firebaseAuth.getUid());
@@ -170,7 +200,7 @@ public class NewRecipeFragment extends Fragment {
         reference = db.getReference("Recipe/"+key);
         reference.setValue(recipe);
 
-        Intent i = new Intent(getContext(), DetailedRecipeActivity.class);
+        Intent i = new Intent(getContext(), NavDrawerActivity.class);
         startActivity(i);
     }
 
@@ -181,7 +211,6 @@ public class NewRecipeFragment extends Fragment {
             PackageManager pm = getActivity().getPackageManager();
             int hasPerm = pm.checkPermission(Manifest.permission.CAMERA, getActivity().getPackageName());
 
-            /** NEED TO FIGURE OUT WHAT IS THE PROBLEM HERE **/
             if (hasPerm == PackageManager.PERMISSION_GRANTED) {
                 final CharSequence[] options = {"Take Photo", "Choose From Gallery","Cancel"};
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
@@ -221,6 +250,7 @@ public class NewRecipeFragment extends Fragment {
                 Bitmap picture = (Bitmap) data.getExtras().get("data");
                 //set image captured to be the new image
                 imageViewRecipesBackPicture.setImageBitmap(picture);
+                image = picture;
                 removeTextView = true;
             }
             else{
@@ -229,6 +259,7 @@ public class NewRecipeFragment extends Fragment {
                     try {
                         //Decode an input stream into bitmap
                         Bitmap picture = BitmapFactory.decodeStream(context.getContentResolver().openInputStream(targetUri));
+                        image = picture;
                         imageViewRecipesBackPicture.setImageBitmap(picture);
                         removeTextView = true;
 

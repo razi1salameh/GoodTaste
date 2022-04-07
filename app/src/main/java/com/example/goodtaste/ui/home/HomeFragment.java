@@ -48,37 +48,22 @@ public class HomeFragment extends Fragment {
         String UID = maFirebaseAuth.getUid();
 
         //build a ref for user related data in real time DB using UID
-        DatabaseReference myRef = database.getReference("Users");
+        DatabaseReference myRef = database.getReference("Recipe");
 
         recyclerView = root.findViewById(R.id.recyclerViewMinRecipeList);
         //String imageChange = (String)(R.drawable.Rice);
-
-        temp = new Recipe("Rice",   "R.drawable.Rice", "00:30", "true", "TheVideo", "Salty");
-
-
-        recipes.add(temp);
-        recipes.add(temp);
-        recipes.add(temp);
-        recipes.add(temp);
-
-        //build the item you want to push into the FB
-        //User u1 = new
-        //Recipe re1 = new Recipe("rice", "TheIMAGE", "00:30", true, "TheVideo", new User());
-
-        //adds an item to the FB under the referenced specified
-        //myRef.push().setValue(re1);
-
-        adapter = new CardViewAdapterMinRecipe(getContext(), recipes);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 1, LinearLayoutManager.VERTICAL, false);
-        recyclerView.setLayoutManager(gridLayoutManager);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setAdapter(adapter);
 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                for (DataSnapshot dataSnapshot: snapshot.getChildren()) {
                    Recipe re1 = dataSnapshot.getValue(Recipe.class);
+                   recipes.add(re1);
+                   adapter = new CardViewAdapterMinRecipe(getContext(), recipes);
+                   GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 1, LinearLayoutManager.VERTICAL, false);
+                   recyclerView.setLayoutManager(gridLayoutManager);
+                   recyclerView.setHasFixedSize(true);
+                   recyclerView.setAdapter(adapter);
                }
             }
             @Override

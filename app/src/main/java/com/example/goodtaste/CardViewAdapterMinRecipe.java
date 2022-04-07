@@ -34,10 +34,22 @@ public class CardViewAdapterMinRecipe extends RecyclerView.Adapter<CardViewAdapt
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.imageViewRecipePicture.setImageBitmap(Recipe.stringToBitmap(recipes.get(position).getImage()));
+        Recipe recipe = recipes.get(position);
+        if(recipes.get(position).getImage() != null)
+            holder.imageViewRecipePicture.setImageBitmap(Recipe.stringToBitmap(recipes.get(position).getImage()));
         holder.textViewRowName.setText(recipes.get(position).getTitle());
         holder.textViewRowCategory.setText("Category : "+recipes.get(position).getCategory());
         holder.textViewRowTime.setText("Time : "+recipes.get(position).getTime());
+
+        //this button opens the detailed recipe
+        holder.ImageButtonSeeMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, DetailedRecipeActivity.class);
+                intent.putExtra("recipe",recipe);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override

@@ -47,7 +47,13 @@ public class Recipe implements Serializable {
         this.creator = creator;
         this.category = category;
     }
-
+    public Recipe(String title, String time, String video, String creator, String category) {
+        this.title = title;
+        this.time = time;
+        this.video = video;
+        this.creator = creator;
+        this.category = category;
+    }
     public Recipe() { }
 
     //Getters

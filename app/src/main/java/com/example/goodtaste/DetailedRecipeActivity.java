@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -33,7 +34,7 @@ public class DetailedRecipeActivity extends AppCompatActivity {
 
         Recipe recipe = (Recipe) getIntent().getSerializableExtra("recipe");
 
-        imageViewExpandedRecipePicture = findViewById(R.id.imageViewRecipePicture);
+        imageViewExpandedRecipePicture = findViewById(R.id.imageViewExpandedRecipePicture);
         textViewExpandedRecipeCategory  = findViewById(R.id.textViewExpandedRecipeCategory);
         textViewExpandedRecipeTime = findViewById(R.id.textViewExpandedRecipeTime);
         textViewExpandedRecipeCreator = findViewById(R.id.textViewExpandedRecipeCreator);
@@ -43,12 +44,27 @@ public class DetailedRecipeActivity extends AppCompatActivity {
         textViewExpandedRecipeAddToFavorites = findViewById(R.id.textViewExpandedRecipeAddToFavorites);
         ImageButtonSeeLess = findViewById(R.id.ImageButtonSeeLess);
 
-        //ImageButtonSeeLess.setOnClickListener();
 
 
         if(recipe!=null){
-            textViewExpandedRecipeCategory.setText(recipe.getCategory());
+            if(recipe.getImage() != null )
+                imageViewExpandedRecipePicture.setImageBitmap(recipe.stringToBitmap(recipe.getImage()));
+            textViewExpandedRecipeCategory.setText((recipe.getCategory()));
+            textViewExpandedRecipeTime.setText(recipe.getTime()+"");
+            textViewExpandedRecipeCreator.setText(recipe.getCreator());
+            textViewExpandedRecipeVideo.setText(recipe.getVideo());
+            textViewExpandedRecipeIngredients.setText(recipe.getIngredients());
+            textViewExpandedRecipeInstruction.setText(recipe.getSteps());
         }
+
+        //this button opens the gallery or camera so you can choose a picture from to the recipe
+        ImageButtonSeeLess.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(DetailedRecipeActivity.this , NavDrawerActivity.class);
+                startActivity(i);
+            }
+        });
 
     }
 
