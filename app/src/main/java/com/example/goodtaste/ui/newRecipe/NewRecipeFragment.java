@@ -15,9 +15,12 @@ import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,9 +29,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
-import com.example.goodtaste.DetailedRecipeActivity;
 import com.example.goodtaste.Ingredient;
-import com.example.goodtaste.LogInActivity;
 import com.example.goodtaste.NavDrawerActivity;
 import com.example.goodtaste.R;
 import com.example.goodtaste.Recipe;
@@ -64,6 +65,7 @@ public class NewRecipeFragment extends Fragment {
     private Context context;
     private Bitmap image;
 
+
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentNewRecipeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
@@ -94,6 +96,7 @@ public class NewRecipeFragment extends Fragment {
         buttonCreateRecipe = root.findViewById(R.id.buttonCreateRecipe);
         textViewRecipesIngredientsList = root.findViewById(R.id.textViewRecipesIngredientsList);
 
+
         //this button opens the gallery or camera so you can choose a picture from to the recipe
         textViewRecipesPicture.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,12 +111,8 @@ public class NewRecipeFragment extends Fragment {
         //this button opens the gallery or camera so you can choose a video from to the recipe
         textViewRecipesVideo.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(i, CAMERA_REQUEST);
+            public void onClick(View view) { } });
 
-            }
-        });
 
         //this button on click adds the the new ingredient to the list of ingredients and set new value to the texView
         buttonAddIngredients.setOnClickListener(new View.OnClickListener() {
@@ -137,6 +136,7 @@ public class NewRecipeFragment extends Fragment {
             }
         });
 
+
         //this button deletes the last ingredient that was added
         textViewRecipesIngredientsDelete.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -151,6 +151,7 @@ public class NewRecipeFragment extends Fragment {
                 }
             }
         });
+
 
         //this button creates new recipe by calling the function that adds it to FB
         buttonCreateRecipe.setOnClickListener(new View.OnClickListener() {
@@ -240,7 +241,6 @@ public class NewRecipeFragment extends Fragment {
             e.printStackTrace();
         }
     }
-
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {

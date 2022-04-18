@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    android:background="#f1dabf"
+    android:background="#f5e9e2"
     android:orientation="vertical"
     tools:context=".ui.home.HomeFragment">
 
@@ -25,14 +25,14 @@
         android:layout_marginBottom="40dp"
         android:layout_marginTop="10dp"
         android:layout_gravity="center"
-        android:background="@drawable/black_rounded_corner" />
+        android:backgroundTint="#ffffff"
+        android:background="@drawable/blue_rounded_corner" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewMinRecipeList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="5dp"
-
         android:backgroundTint="#f1dabf"
         card_view:cardPreventCornerOverlap="true"
         card_view:cardUseCompatPadding="true"

@@ -15,15 +15,14 @@ import androidx.fragment.app.Fragment;
 import com.example.goodtaste.NavDrawerActivity;
 import com.example.goodtaste.R;
 import com.example.goodtaste.databinding.FragmentProfileBinding;
-import com.example.goodtaste.ui.home.HomeFragment;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class ProfileFragment extends Fragment {
 
     private FragmentProfileBinding binding;
-    private ImageView imageViewAddFavoriteProfile, imageViewBackToHomePage, imageViewProfileImage;
-    private TextView textViewUsersName, textViewPersonalInfo, textViewUsersRecipes, textViewUsersBio;
-    private TextView textViewUsersCity,textViewUsersWork, textViewUsersEmail, textViewUsersPhoneNumber;
+    private ImageView imageViewBackToHomePage, imageViewProfileImage;
+    private TextView textViewUsersName, textViewPersonalInfo, textViewUsersBio, textViewUsersProfession;
+    private TextView textViewUsersPersonalAddress,textViewUsersWorkAddress, textViewUsersEmail, textViewUsersPhoneNumber;
     private LinearLayout linearLayoutSwitchSectionsInProfile, linearLayoutEditProfile;
     private FirebaseAuth firebaseAuth;
 
@@ -37,28 +36,19 @@ public class ProfileFragment extends Fragment {
         String UID = firebaseAuth.getUid();
 
 
-        imageViewAddFavoriteProfile = root.findViewById(R.id.imageViewAddProfileToFavorites);
         imageViewBackToHomePage = root.findViewById(R.id.imageViewBackToHomePage);
         imageViewProfileImage = root.findViewById(R.id.imageViewProfileImage);
         textViewUsersName = root.findViewById(R.id.textViewUsersName);
         textViewPersonalInfo = root.findViewById(R.id.textViewPersonalInfo);
-        textViewUsersRecipes = root.findViewById(R.id.textViewUsersRecipes);
         textViewUsersBio = root.findViewById(R.id.textViewUsersBio);
-        textViewUsersCity = root.findViewById(R.id.textViewUsersCity);
-        textViewUsersWork = root.findViewById(R.id.textViewUsersWork);
+        textViewUsersProfession = root.findViewById(R.id.textViewUsersProfession);
+        textViewUsersPersonalAddress = root.findViewById(R.id.textViewUsersPersonalAddress);
+        textViewUsersWorkAddress = root.findViewById(R.id.textViewUsersWorkAddress);
         textViewUsersEmail = root.findViewById(R.id.textViewUsersEmail);
         textViewUsersPhoneNumber = root.findViewById(R.id.textViewUsersPhoneNumber);
 
         linearLayoutSwitchSectionsInProfile = root.findViewById(R.id.linearLayoutSwitchSectionsInProfile);
         linearLayoutEditProfile = root.findViewById(R.id.linearLayoutEditProfile);
-
-        //this button add this profile to favorites
-        imageViewAddFavoriteProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
 
         //this button goes back to home page
         imageViewBackToHomePage.setOnClickListener(new View.OnClickListener() {
@@ -66,22 +56,6 @@ public class ProfileFragment extends Fragment {
             public void onClick(View view) {
                 Intent i = new Intent(getContext(), NavDrawerActivity.class);
                 startActivity(i);
-            }
-        });
-
-        //this button open the section of the recipes that the user have created
-        textViewUsersRecipes.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
-        //this button open the section of the recipes that the user have created
-        textViewUsersRecipes.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
             }
         });
 

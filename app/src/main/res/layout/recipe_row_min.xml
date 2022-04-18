@@ -11,7 +11,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:backgroundTint="#f1dabf"
+        android:backgroundTint="#f5e9e2"
         tools:ignore="MissingConstraints">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,7 +19,7 @@
             android:layout_height="match_parent"
             android:layout_margin="15dp"
             android:background="@drawable/black_rounded_corner"
-            android:backgroundTint="#086788" >
+            android:backgroundTint="#619B9A" >
 
             <ImageView
                 android:id="@+id/imageViewRecipePicture"
@@ -103,6 +103,7 @@
                 android:layout_height="30dp"
                 android:text=" "
                 android:background="@drawable/ic_person"
+                android:backgroundTint="#A1C181"
                 app:layout_constraintBottom_toBottomOf="@+id/textViewRowPersonBackground"
                 app:layout_constraintEnd_toEndOf="@+id/textViewRowPersonBackground"
                 app:layout_constraintHorizontal_bias="0.555"
@@ -131,6 +132,7 @@
                 android:layout_height="25dp"
                 android:text=" "
                 android:background="@drawable/ic_video"
+                android:backgroundTint="#A1C181"
                 app:layout_constraintBottom_toBottomOf="@+id/textViewRowVideoBackground"
                 app:layout_constraintEnd_toEndOf="@+id/textViewRowVideoBackground"
                 app:layout_constraintHorizontal_bias="0.466"
@@ -157,6 +159,7 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:background="@drawable/ic_star_not_fill"
+                android:backgroundTint="#A1C181"
                 android:onClick="addToFavoritesPage"
                 app:layout_constraintBottom_toBottomOf="@+id/textViewRowFavoritesBackground"
                 app:layout_constraintEnd_toEndOf="@+id/textViewRowFavoritesBackground"

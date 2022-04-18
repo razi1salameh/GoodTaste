@@ -7,14 +7,14 @@
     tools:context=".SignUpActivity">
 
     <ImageView
-        android:foreground="@drawable/foreground_design"
         android:id="@+id/imageViewBackgroundRegister"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:foreground="@drawable/foreground_design"
         android:scaleType="centerCrop"
         android:src="@drawable/bg4"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="0dp" />
+        tools:layout_editor_absoluteX="41dp" />
 
     <TextView
         android:id="@+id/textViewMainTitle2"
@@ -111,21 +111,6 @@
         app:layout_constraintWidth_percent=".8" />
 
     <EditText
-        android:id="@+id/editTextCity"
-        android:textColor="@color/white"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#CCCCCC"
-        android:drawableLeft="@drawable/ic_white_home"
-        android:drawablePadding="13dp"
-        android:hint="@string/City"
-        android:textColorHint="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextConfirmPassword"
-        app:layout_constraintWidth_percent=".8" />
-
-    <EditText
         android:id="@+id/editTextProfession"
         android:textColor="@color/white"
         android:layout_width="0dp"
@@ -137,25 +122,72 @@
         android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextCity"
+        app:layout_constraintTop_toBottomOf="@+id/editTextConfirmPassword"
+        app:layout_constraintWidth_percent=".8" />
+
+    <EditText
+        android:id="@+id/editTextPersonalAddress"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#CCCCCC"
+        android:drawableLeft="@drawable/ic_white_home"
+        android:drawablePadding="13dp"
+        android:hint="Home Address"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextProfession"
+        app:layout_constraintWidth_percent=".8" />
+
+    <EditText
+        android:id="@+id/editTextWorkAddress"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#CCCCCC"
+        android:drawableLeft="@drawable/ic_business"
+        android:drawablePadding="13dp"
+        android:drawableTint="@color/white"
+        android:hint="Work Address"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPersonalAddress"
+        app:layout_constraintWidth_percent=".8" />
+
+    <EditText
+        android:id="@+id/editTextCellphone"
+        android:textColor="@color/white"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#CCCCCC"
+        android:drawableLeft="@drawable/ic_phone_android"
+        android:drawableTint="@color/white"
+        android:drawablePadding="13dp"
+        android:hint="Cellphone"
+        android:textColorHint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextWorkAddress"
         app:layout_constraintWidth_percent=".8" />
 
     <Button
         android:id="@+id/buttonSigUp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:background="@drawable/button_bg_design"
+        android:onClick="Submit"
         android:padding="14dp"
         android:text="@string/submit"
         android:textAllCaps="false"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextProfession"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCellphone"
         app:layout_constraintVertical_bias=".7"
-        android:textStyle="bold"
-        android:onClick="Submit"
-        app:layout_constraintWidth_percent=".8"
-        android:background="@drawable/button_bg_design" />
+        app:layout_constraintWidth_percent=".8" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
