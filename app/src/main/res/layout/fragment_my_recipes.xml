@@ -1,18 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:background="#f5e9e2"
+    android:orientation="vertical"
     tools:context="ui.myRecipes.MyRecipesFragment">
 
     <TextView
-        android:id="@+id/textViewMyRecipes"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"/>
+        android:layout_gravity="center|top"
+        android:layout_margin="15dp"
+        android:text="My Recipes"
+        android:textStyle="bold"
+        android:fontFamily="@font/allerta_stencil"
+        android:textColor="@color/black"
+        android:textSize="30sp"/>
 
-</FrameLayout>
+    <SearchView
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:background="@drawable/black_rounded_corner"
+        android:backgroundTint="#ffffff" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewMinRecipeList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:backgroundTint="#f1dabf"
+        card_view:cardPreventCornerOverlap="true"
+        card_view:cardUseCompatPadding="true"
+        card_view:cardCornerRadius="50dp" />
+</LinearLayout>

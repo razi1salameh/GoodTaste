@@ -263,14 +263,14 @@
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:padding="2dp"
-                            android:background="@drawable/ic_work"
+                            android:background="@drawable/ic_calendar"
                             android:backgroundTint="#292929"
                             android:layout_marginStart="5dp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Profession"
+                            android:text="Age"
                             android:gravity="center"
                             android:layout_marginStart="10dp"
                             android:textSize="16sp"
@@ -281,7 +281,7 @@
                     </LinearLayout>
 
                     <TextView
-                        android:id="@+id/textViewUsersProfession"
+                        android:id="@+id/textViewUsersAge"
                         android:layout_width="300dp"
                         android:layout_height="wrap_content"
                         android:text="________________________"

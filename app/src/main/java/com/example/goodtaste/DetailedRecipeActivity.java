@@ -45,15 +45,13 @@ public class DetailedRecipeActivity extends AppCompatActivity {
         ImageButtonSeeLess = findViewById(R.id.ImageButtonSeeLess);
 
 
-
         if(recipe!=null){
             if(recipe.getImage() != null )
                 imageViewExpandedRecipePicture.setImageBitmap(recipe.stringToBitmap(recipe.getImage()));
             textViewExpandedRecipeCategory.setText((recipe.getCategory()));
             textViewExpandedRecipeTime.setText(recipe.getTime()+"");
             textViewExpandedRecipeCreator.setText(recipe.getCreator());
-            textViewExpandedRecipeVideo.setText(recipe.getVideo());
-            textViewExpandedRecipeIngredients.setText(recipe.getIngredients());
+            textViewExpandedRecipeIngredients.setText(StringOfIngredientsToSeparatedIngredients(recipe.getIngredients()));
             textViewExpandedRecipeInstruction.setText(recipe.getSteps());
         }
 
@@ -66,6 +64,51 @@ public class DetailedRecipeActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    //Turn object ingredient into string in order to store it in DB
+    public Ingredient StringToIngredient (String si) {
+        Ingredient ingr = new Ingredient("a",1,"tsp");
+        int index = 0;
+        String content = "";
+        String[] obj = new String[3];
+        for (int i=0 ; i< si.length() ; i++) {
+            if (si.charAt(i) != '*')
+                content += si.charAt(i);
+            else {
+                obj[index] = content;
+                content = "";
+                index++;
+            }
+
+        }
+        ingr.setName(obj[0]);
+        ingr.setAmount(Double.parseDouble(obj[1]));
+        ingr.setUnit(obj[2]);
+        return ingr;
+    }
+
+    //Turn the String of ingredients into a separatedString in oder to display it in DetailedRecipe
+    public String StringOfIngredientsToSeparatedIngredients (String soi){
+        String tempString = "";
+        int count = 0;
+        String organizedList = "";
+        for(int i=0 ; i< soi.length() ; i++){
+            tempString += soi.charAt(i);
+            if (soi.charAt(i) == '*')
+                count++;
+
+            if(count == 3){
+                Ingredient returnedIngredient = StringToIngredient(tempString);
+                organizedList += returnedIngredient.getName()+" - ";
+                organizedList += returnedIngredient.getAmount()+" ";
+                organizedList += returnedIngredient.getUnit()+"\n";
+                tempString = "";
+                count = 0;
+            }
+
+        }
+        return organizedList;
     }
 
 }

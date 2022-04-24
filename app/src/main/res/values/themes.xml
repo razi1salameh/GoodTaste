@@ -3,14 +3,14 @@
     <style name="Theme.GoodTaste" parent="Theme.MaterialComponents.DayNight.NoActionBar">
 
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/dark_yellow</item>
+        <item name="colorPrimary">#FCCA46</item>
         <item name="colorPrimaryVariant">#123456</item>
         <item name="colorOnPrimary">@color/gray1</item>
         <item name="android:textSize">15dp</item>
 
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/dark_yellow</item>
-        <item name="colorSecondaryVariant">@color/dark_yellow</item>
+        <item name="colorSecondary">#FCCA46</item>
+        <item name="colorSecondaryVariant">#FCCA46</item>
         <item name="colorOnSecondary">@color/black</item>
 
         <!-- Status bar color. -->

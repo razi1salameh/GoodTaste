@@ -44,11 +44,6 @@
         <item android:title="Favorites">
             <menu>
                 <item
-                    android:id="@+id/nav_fav_accounts"
-                    android:icon="@drawable/ic_people"
-                    android:title="Favorite Accounts" />
-
-                <item
                     android:id="@+id/nav_fav_recipes"
                     android:icon="@drawable/ic_star_fill"
                     android:title="Favorite Recipes" />

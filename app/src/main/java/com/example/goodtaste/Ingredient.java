@@ -17,6 +17,7 @@ public class Ingredient {
         this.unit = unit;
     }
 
+
     //Getters
     public String getName() { return name; }
     public double getAmount() { return amount; }
@@ -30,9 +31,10 @@ public class Ingredient {
     //Turn object ingredient into string in order to store it in DB
     public String ingredientToString () {
         String str = "";
-        str += this.name+", ";
-        str += this.amount+", ";
-        str += this.unit;
+        str += this.name+"*";
+        str += this.amount+"*";
+        str += this.unit+"*";
         return str;
     }
+
 }

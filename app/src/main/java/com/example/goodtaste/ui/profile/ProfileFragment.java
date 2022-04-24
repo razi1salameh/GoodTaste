@@ -21,7 +21,7 @@ public class ProfileFragment extends Fragment {
 
     private FragmentProfileBinding binding;
     private ImageView imageViewBackToHomePage, imageViewProfileImage;
-    private TextView textViewUsersName, textViewPersonalInfo, textViewUsersBio, textViewUsersProfession;
+    private TextView textViewUsersName, textViewPersonalInfo, textViewUsersBio, textViewUsersAge;
     private TextView textViewUsersPersonalAddress,textViewUsersWorkAddress, textViewUsersEmail, textViewUsersPhoneNumber;
     private LinearLayout linearLayoutSwitchSectionsInProfile, linearLayoutEditProfile;
     private FirebaseAuth firebaseAuth;
@@ -41,7 +41,7 @@ public class ProfileFragment extends Fragment {
         textViewUsersName = root.findViewById(R.id.textViewUsersName);
         textViewPersonalInfo = root.findViewById(R.id.textViewPersonalInfo);
         textViewUsersBio = root.findViewById(R.id.textViewUsersBio);
-        textViewUsersProfession = root.findViewById(R.id.textViewUsersProfession);
+        textViewUsersAge = root.findViewById(R.id.textViewUsersAge);
         textViewUsersPersonalAddress = root.findViewById(R.id.textViewUsersPersonalAddress);
         textViewUsersWorkAddress = root.findViewById(R.id.textViewUsersWorkAddress);
         textViewUsersEmail = root.findViewById(R.id.textViewUsersEmail);

@@ -15,12 +15,9 @@ import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,7 +47,7 @@ public class NewRecipeFragment extends Fragment {
     private EditText editTextRecipesIngredientsName, editTextRecipesIngredientsAmount, editTextRecipesIngredientsUnit;
     private EditText editTextRecipesSteps;
     private Button buttonAddIngredients, buttonCreateRecipe;
-    
+
     private FragmentNewRecipeBinding binding;
     private FirebaseAuth firebaseAuth;
     private DatabaseReference reference;
@@ -58,12 +55,11 @@ public class NewRecipeFragment extends Fragment {
     private ArrayList<Ingredient> ingredients;
     private String oneIngredient ="";
     private String updateView = "";
-    private static boolean removeTextView = false;
     private static int numOfIngredient = 1 ;
     private static final int CAMERA_REQUEST = 0;
     private static final int GALLERY_REQUEST = 1;
     private Context context;
-    private Bitmap image;
+    private Bitmap recipesImage;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -75,7 +71,6 @@ public class NewRecipeFragment extends Fragment {
         reference = db.getReference("Recipe");
 
         firebaseAuth = FirebaseAuth.getInstance();
-        FirebaseUser user = firebaseAuth.getCurrentUser();
 
         ingredients = new ArrayList<>();
 
@@ -102,9 +97,6 @@ public class NewRecipeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 selectImage();
-                if (removeTextView) {
-                    textViewRecipesPicture.setVisibility(View.INVISIBLE);
-                }
             }
         });
 
@@ -189,11 +181,12 @@ public class NewRecipeFragment extends Fragment {
         String key = reference.push().getKey();
 
         recipe.setTitle(editTextRecipesName.getText().toString());
-        if(image != null)
-            recipe.setImage(recipe.bitmapToString(image));
+        if(recipesImage != null)
+            recipe.setImage(recipe.bitmapToString(recipesImage));
         recipe.setTime(mergeTime());
         recipe.setVideo(textViewRecipesVideo.getText().toString());
-        recipe.setCreator(firebaseAuth.getUid());
+        recipe.setCategory(editTextRecipesCategory.getText().toString());
+        recipe.setCreator(firebaseAuth.getCurrentUser().getEmail());
         recipe.setIngredients(recipe.ArrayOfIngredientsToString(ingredients));
         recipe.setSteps(editTextRecipesSteps.getText().toString());
         recipe.setKey(key);
@@ -250,26 +243,25 @@ public class NewRecipeFragment extends Fragment {
                 Bitmap picture = (Bitmap) data.getExtras().get("data");
                 //set image captured to be the new image
                 imageViewRecipesBackPicture.setImageBitmap(picture);
-                image = picture;
-                removeTextView = true;
+                recipesImage = picture;
             }
-            else{
-                if(resultCode == RESULT_OK){
-                    Uri targetUri = data.getData();
-                    try {
-                        //Decode an input stream into bitmap
-                        Bitmap picture = BitmapFactory.decodeStream(context.getContentResolver().openInputStream(targetUri));
-                        image = picture;
-                        imageViewRecipesBackPicture.setImageBitmap(picture);
-                        removeTextView = true;
-
-                    } catch (FileNotFoundException e){
-                        e.printStackTrace();
+        }
+        else{
+            if(resultCode == RESULT_OK){
+                Uri targetUri = data.getData();
+                try {
+                    //Decode an input stream into bitmap
+                    Bitmap picture = BitmapFactory.decodeStream(context.getContentResolver().openInputStream(targetUri));
+                    recipesImage = picture;
+                    imageViewRecipesBackPicture.setImageBitmap(picture);
                     }
+                catch (FileNotFoundException e)
+                {
+                    e.printStackTrace();
+                }
                 }
             }
         }
-    }
 
 
     @Override
@@ -277,5 +269,4 @@ public class NewRecipeFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
-  }
-  
+}

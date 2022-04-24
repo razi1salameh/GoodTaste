@@ -63,6 +63,7 @@ public class CardViewAdapterMinRecipe extends RecyclerView.Adapter<CardViewAdapt
         TextView textViewRowName, textViewRowCategory, textViewRowTime;
         TextView textViewRowPerson, textViewRowVideo, textViewRowFavorites;
         ImageButton ImageButtonSeeMore;
+        static boolean isFilled = false;
 
         public MyViewHolder(@NonNull View itemView){
             super(itemView);
@@ -76,28 +77,19 @@ public class CardViewAdapterMinRecipe extends RecyclerView.Adapter<CardViewAdapt
             textViewRowFavorites = itemView.findViewById(R.id.textViewRowFavorites);
             ImageButtonSeeMore = itemView.findViewById(R.id.ImageButtonSeeMore);
 
-            //this button take you to the creator profile
-            textViewRowPerson.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    /** NEED TO DO PROFILE PAGE SO I CAN MAKE THIS BUTTON WORKING **/
-                }
-            });
-
-            //this button takes the user to a video in youtube
-            textViewRowVideo.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-                }
-            });
-
             //this button adds the recipe to favorites and changes to fill star (as a recipe that has been added to fav)
             textViewRowFavorites.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     /** NEED TO ADD THE MINI RECIPE TO FAVORITES PAGE AND ALSO ADD TO FIREBASE AS ONE OF FAVORITES **/
-                    textViewRowFavorites.setBackgroundResource(R.drawable.ic_star_fill);
+                    if (!isFilled) {
+                        textViewRowFavorites.setBackgroundResource(R.drawable.ic_star_fill);
+                        isFilled = true;
+                    }
+                    else {
+                        textViewRowFavorites.setBackgroundResource(R.drawable.ic_star_not_fill);
+                        isFilled = false;
+                    }
                 }
             });
 

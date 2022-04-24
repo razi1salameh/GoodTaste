@@ -22,7 +22,6 @@ public class GroceryListFragment extends Fragment {
         binding = FragmentGroceryListBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textViewGroceryList;
         return root;
     }
 

@@ -1,23 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#eff578"
-    android:gravity="top|center"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:background="#f5e9e2"
+    android:orientation="vertical"
     tools:context=".ui.favRecipes.FavRecipesFragment">
 
     <TextView
-        android:id="@+id/textViewTop"
-        android:layout_width="300dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:textAlignment="center"
-        android:text="Top rated recipes"
-        android:fontFamily="serif-monospace"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="15dp"
+        android:text="Favorites"
+        android:textStyle="bold"
+        android:fontFamily="@font/allerta_stencil"
         android:textColor="@color/black"
-        android:textSize="20sp" />
+        android:textSize="30sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|top"
+        android:layout_margin="15dp"
+        android:text="Clear some time in your sechdual to make these recipes "
+        android:textStyle="bold"
+        android:fontFamily="@font/allerta_stencil"
+        android:textColor="@color/black"
+        android:textSize="12sp"/>
+
+    <SearchView
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:background="@drawable/black_rounded_corner"
+        android:backgroundTint="#ffffff" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewMinRecipeList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:backgroundTint="#f1dabf"
+        card_view:cardPreventCornerOverlap="true"
+        card_view:cardUseCompatPadding="true"
+        card_view:cardCornerRadius="50dp" />
 
 
-</FrameLayout>
+</LinearLayout>

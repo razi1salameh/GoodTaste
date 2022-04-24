@@ -37,23 +37,9 @@ public class Recipe implements Serializable {
     //Steps to make the recipe
     private String steps;
 
+    //The recipe unique Id
     private String key;
 
-    public Recipe(String title, String image, String time, String video, String creator, String category) {
-        this.title = title;
-        this.image = image;
-        this.time = time;
-        this.video = video;
-        this.creator = creator;
-        this.category = category;
-    }
-    public Recipe(String title, String time, String video, String creator, String category) {
-        this.title = title;
-        this.time = time;
-        this.video = video;
-        this.creator = creator;
-        this.category = category;
-    }
     public Recipe() { }
 
     //Getters

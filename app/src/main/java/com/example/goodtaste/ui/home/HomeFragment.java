@@ -33,8 +33,6 @@ public class HomeFragment extends Fragment {
     private List<Recipe> recipes = new ArrayList<>();
     private RecyclerView recyclerView;
     private CardViewAdapterMinRecipe adapter;
-    private Recipe temp;
-    private Context context;
 
     //get instance of Authentication PROJECT IN FB console
     private FirebaseAuth maFirebaseAuth = FirebaseAuth.getInstance();
@@ -45,14 +43,11 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        String UID = maFirebaseAuth.getUid();
 
         //build a ref for user related data in real time DB using UID
         DatabaseReference myRef = database.getReference("Recipe");
 
         recyclerView = root.findViewById(R.id.recyclerViewMinRecipeList);
-        //String imageChange = (String)(R.drawable.Rice);
-
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

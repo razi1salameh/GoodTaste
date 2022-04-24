@@ -21,7 +21,6 @@ public class FavRecipesFragment extends Fragment {
         binding = FragmentFavRecipesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textViewTop;
         return root;
     }
 

@@ -27,7 +27,7 @@
         android:textSize="33sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageViewBackgroundRegister"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintVertical_bias=".2"
+        app:layout_constraintVertical_bias=".1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -47,6 +47,40 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewMainTitle2" />
 
+    <LinearLayout
+        android:id="@+id/linearLayoutEditProfileImageInSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        app:layout_constraintHorizontal_bias="0.57"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewRegister"
+        app:layout_constraintWidth_percent=".8" >
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imageViewTheProfileImageInSignUp"
+            android:layout_width="98dp"
+            android:layout_height="98dp"
+            android:layout_centerHorizontal="true"
+            android:background="@color/white"
+            android:elevation="15dp"
+            android:src="@drawable/ic_person"
+            app:shapeAppearanceOverlay="@style/Circular" />
+
+        <ImageView
+            android:id="@+id/imageViewTheEditProfileImageInSignUp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:padding="5dp"
+            android:layout_gravity="right|bottom"
+            android:background="@drawable/ic_edit"
+            android:backgroundTint="#FCCA46" />
+
+    </LinearLayout>
+
     <EditText
         android:id="@+id/editTextFullName"
         android:textColor="@color/white"
@@ -60,7 +94,7 @@
         android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewRegister"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutEditProfileImageInSignUp"
         app:layout_constraintWidth_percent=".8" />
 
     <EditText
@@ -111,14 +145,16 @@
         app:layout_constraintWidth_percent=".8" />
 
     <EditText
-        android:id="@+id/editTextProfession"
+        android:id="@+id/editTextAge"
         android:textColor="@color/white"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:backgroundTint="#CCCCCC"
-        android:drawableLeft="@drawable/ic_work"
+        android:drawableLeft="@drawable/ic_calendar"
         android:drawablePadding="13dp"
-        android:hint="@string/profession"
+        android:drawableTint="@color/white"
+        android:hint="Age"
+        android:inputType="date"
         android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -137,7 +173,7 @@
         android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextProfession"
+        app:layout_constraintTop_toBottomOf="@+id/editTextAge"
         app:layout_constraintWidth_percent=".8" />
 
     <EditText
@@ -166,6 +202,7 @@
         android:drawableTint="@color/white"
         android:drawablePadding="13dp"
         android:hint="Cellphone"
+        android:inputType="phone"
         android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -177,7 +214,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/button_bg_design"
-        android:onClick="Submit"
         android:padding="14dp"
         android:text="@string/submit"
         android:textAllCaps="false"

@@ -99,7 +99,7 @@
         android:onClick="MoveToRegister"
         android:text="Register"
         android:textAlignment="center"
-        android:textColor="@color/dark_yellow"
+        android:textColor="#FCCA46"
         android:textSize="18dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

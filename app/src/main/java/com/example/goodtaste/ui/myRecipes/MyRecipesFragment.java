@@ -23,7 +23,6 @@ public class MyRecipesFragment extends Fragment {
         binding = FragmentMyRecipesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textViewMyRecipes;
         return root;
     }
 
