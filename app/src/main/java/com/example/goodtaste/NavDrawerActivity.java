@@ -52,8 +52,7 @@ public class NavDrawerActivity extends AppCompatActivity implements DialogInterf
     //gets the root of the real time DB in the FB console
     private FirebaseDatabase db = FirebaseDatabase.getInstance("https://goodtaste-30dbb-default-rtdb.europe-west1.firebasedatabase.app/");
 
-    private ImageView imageViewTheHeaderProfileImage;
-    private TextView textViewTheHeaderUsername, textViewTheHeaderEmail, textViewSeeProfile;
+    private TextView textViewSeeProfile;
     private MenuItem viewLogOut;
 
     @Override
@@ -71,12 +70,12 @@ public class NavDrawerActivity extends AppCompatActivity implements DialogInterf
 
         textViewSeeProfile = headerView.findViewById(R.id.textViewSeeProfile);
 
-        DatabaseReference ref = db.getReference().child("Users").child(firebaseAuth.getCurrentUser().getUid());
-        ref.addValueEventListener(new ValueEventListener() {
+        DatabaseReference referenceForUser = db.getReference().child("Users").child(firebaseAuth.getCurrentUser().getUid());
+        referenceForUser.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot dataSnapshot:snapshot.getChildren()) {
-                    User tempUser = dataSnapshot.child("profileInfo").getValue(User.class);
+                    User tempUser = dataSnapshot.getValue(User.class);
                     loadNavHeader(tempUser);
                 }
             }
@@ -87,7 +86,7 @@ public class NavDrawerActivity extends AppCompatActivity implements DialogInterf
             }
         });
 
-        mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_fav_recipes, R.id.nav_grocery_list, R.id.nav_home, R.id.nav_myRecipes, R.id.nav_newRecipe, R.id.nav_profile).setOpenableLayout(drawer).build();
+        mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_fav_recipes, R.id.nav_home, R.id.nav_myGrocery_lists, R.id.nav_myRecipes, R.id.nav_newRecipe, R.id.nav_profile).setOpenableLayout(drawer).build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_nav_drawer);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);

@@ -27,7 +27,7 @@
         android:textSize="33sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageViewBackgroundRegister"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintVertical_bias=".1"
+        app:layout_constraintVertical_bias=".05"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -145,6 +145,22 @@
         app:layout_constraintWidth_percent=".8" />
 
     <EditText
+        android:id="@+id/editTextBio"
+        android:textColor="@color/white"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#CCCCCC"
+        android:drawableLeft="@drawable/ic_list"
+        android:drawablePadding="13dp"
+        android:drawableTint="@color/white"
+        android:hint="Bio"
+        android:textColorHint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextConfirmPassword"
+        app:layout_constraintWidth_percent=".8" />
+
+    <EditText
         android:id="@+id/editTextAge"
         android:textColor="@color/white"
         android:layout_width="0dp"
@@ -154,11 +170,11 @@
         android:drawablePadding="13dp"
         android:drawableTint="@color/white"
         android:hint="Age"
-        android:inputType="date"
+        android:inputType="numberDecimal"
         android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextConfirmPassword"
+        app:layout_constraintTop_toBottomOf="@+id/editTextBio"
         app:layout_constraintWidth_percent=".8" />
 
     <EditText
@@ -171,6 +187,7 @@
         android:hint="Home Address"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextAge"
@@ -187,6 +204,7 @@
         android:hint="Work Address"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextPersonalAddress"

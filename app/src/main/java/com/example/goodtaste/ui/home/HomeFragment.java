@@ -1,11 +1,9 @@
 package com.example.goodtaste.ui.home;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -66,8 +64,6 @@ public class HomeFragment extends Fragment {
 
             }
         });
-
-
 
         return root;
     }

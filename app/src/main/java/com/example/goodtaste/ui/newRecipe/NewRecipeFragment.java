@@ -100,12 +100,6 @@ public class NewRecipeFragment extends Fragment {
             }
         });
 
-        //this button opens the gallery or camera so you can choose a video from to the recipe
-        textViewRecipesVideo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) { } });
-
-
         //this button on click adds the the new ingredient to the list of ingredients and set new value to the texView
         buttonAddIngredients.setOnClickListener(new View.OnClickListener() {
             @Override

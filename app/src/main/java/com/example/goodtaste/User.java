@@ -7,17 +7,18 @@ import android.util.Base64;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import java.io.Serializable;
 
-public class User {
+public class User implements Serializable {
     private String usersImage;
     private String FullName;
     private String Email;
     private String password;
-    private int Age;
+    private String bio;
+    private Double Age;
     private String personalAddress;
     private String workAddress;
     private String cellPhone;
-    private String key;
 
     public User(){}
 
@@ -34,7 +35,7 @@ public class User {
     public String getPassword() {
         return password;
     }
-    public int getAge() {
+    public Double getAge() {
         return Age;
     }
     public String getPersonalAddress() {
@@ -46,8 +47,8 @@ public class User {
     public String getCellPhone() {
         return cellPhone;
     }
-    public String getKey() {
-        return key;
+    public String getBio() {
+        return bio;
     }
 
     //Setters
@@ -63,7 +64,7 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-    public void setAge(int age) {
+    public void setAge(double age) {
         Age = age;
     }
     public void setPersonalAddress(String personalAddress) {
@@ -75,8 +76,8 @@ public class User {
     public void setCellPhone(String cellPhone) {
         this.cellPhone = cellPhone;
     }
-    public void setKey(String key) {
-        this.key = key;
+    public void setBio(String bio) {
+        this.bio = bio;
     }
 
     //this function turns the image from string type to bitmap

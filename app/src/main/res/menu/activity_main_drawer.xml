@@ -17,9 +17,9 @@
                     android:title="Profile" />
 
                 <item
-                    android:id="@+id/nav_grocery_list"
+                    android:id="@+id/nav_myGrocery_lists"
                     android:icon="@drawable/ic_shopping_cart"
-                    android:title="Grocery List" />
+                    android:title="My Grocery Lists" />
             </menu>
         </item>
     </group>

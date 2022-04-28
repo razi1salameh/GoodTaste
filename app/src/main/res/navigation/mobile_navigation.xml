@@ -6,28 +6,22 @@
     app:startDestination="@+id/nav_home">
 
     <fragment
-        android:id="@+id/nav_fav_accounts"
-        android:name="com.example.goodtaste.ui.favAccounts.FavAccountsFragment"
-        android:label="Favorite Accounts"
-        tools:layout="@layout/fragment_fav_accounts" />
-
-    <fragment
         android:id="@+id/nav_fav_recipes"
         android:name="com.example.goodtaste.ui.favRecipes.FavRecipesFragment"
         android:label="Favorite Recipes"
         tools:layout="@layout/fragment_fav_recipes" />
 
     <fragment
-        android:id="@+id/nav_grocery_list"
-        android:name="com.example.goodtaste.ui.groceryList.GroceryListFragment"
-        android:label="Grocery List"
-        tools:layout="@layout/fragment_grocery_list" />
-
-    <fragment
         android:id="@+id/nav_home"
         android:name="com.example.goodtaste.ui.home.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_myGrocery_lists"
+        android:name="com.example.goodtaste.ui.myGroceryLists.MyGroceryListFragment"
+        android:label="My Grocery Lists"
+        tools:layout="@layout/fragment_my_grocery_lists" />
 
     <fragment
         android:id="@+id/nav_myRecipes"

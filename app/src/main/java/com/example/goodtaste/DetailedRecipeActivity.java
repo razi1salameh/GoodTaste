@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -25,7 +24,7 @@ public class DetailedRecipeActivity extends AppCompatActivity {
     private TextView textViewExpandedRecipeAddToFavorites;
 
     //The button that clicks to minimize the recipe's details
-    private ImageButton ImageButtonSeeLess;
+    private ImageButton ImageButtonSeeLessRecipe;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +41,7 @@ public class DetailedRecipeActivity extends AppCompatActivity {
         textViewExpandedRecipeIngredients = findViewById(R.id.textViewExpandedRecipeIngredients);
         textViewExpandedRecipeInstruction = findViewById(R.id.textViewExpandedRecipeInstruction);
         textViewExpandedRecipeAddToFavorites = findViewById(R.id.textViewExpandedRecipeAddToFavorites);
-        ImageButtonSeeLess = findViewById(R.id.ImageButtonSeeLess);
+        ImageButtonSeeLessRecipe = findViewById(R.id.ImageButtonSeeLessRecipe);
 
 
         if(recipe!=null){
@@ -56,7 +55,7 @@ public class DetailedRecipeActivity extends AppCompatActivity {
         }
 
         //this button opens the gallery or camera so you can choose a picture from to the recipe
-        ImageButtonSeeLess.setOnClickListener(new View.OnClickListener() {
+        ImageButtonSeeLessRecipe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(DetailedRecipeActivity.this , NavDrawerActivity.class);

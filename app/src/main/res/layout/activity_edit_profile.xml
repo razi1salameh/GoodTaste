@@ -3,9 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#A1c181"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:card_view="http://schemas.android.com/tools"
-    tools:context=".ui.profile.EditProfileFragment" >
+    xmlns:card_view="http://schemas.android.com/tools">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,7 +28,7 @@
                 android:layout_height="35dp"
                 android:padding="5dp"
                 android:background="@drawable/ic_check_circle"
-                android:backgroundTint="#A1c181" />
+                android:backgroundTint="@color/black" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -37,23 +37,44 @@
                 android:textSize="16sp"
                 android:layout_margin="5dp"
                 android:textStyle="bold|normal"
-                android:textColor="#A1c181" />
+                android:textColor="@color/black" />
 
         </LinearLayout>
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/imageViewProfileImage"
-            android:layout_width="98dp"
-            android:layout_height="98dp"
-            android:layout_centerHorizontal="true"
+        <LinearLayout
+            android:id="@+id/linearLayoutEditProfileImageInEditProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="20dp"
+            android:gravity="center"
             android:layout_gravity="center"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="15dp"
-            android:background="@color/white"
-            android:elevation="15dp"
-            android:padding="5dp"
-            android:src="@drawable/ic_person"
-            app:shapeAppearanceOverlay="@style/Circular" />
+            app:layout_constraintHorizontal_bias="0.57"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewRegister"
+            app:layout_constraintWidth_percent=".8" >
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/imageViewEditProfileImage"
+                android:layout_width="98dp"
+                android:layout_height="98dp"
+                android:layout_centerHorizontal="true"
+                android:background="@color/white"
+                android:elevation="15dp"
+                android:src="@drawable/ic_person"
+                app:shapeAppearanceOverlay="@style/Circular" />
+
+            <ImageView
+                android:id="@+id/imageViewTheEditProfileImageInEditProfile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:padding="5dp"
+                android:layout_gravity="right|bottom"
+                android:background="@drawable/ic_edit"
+                android:backgroundTint="@color/black" />
+
+        </LinearLayout>
 
         <ScrollView
             android:layout_width="match_parent"
@@ -92,14 +113,14 @@
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
                                 android:padding="2dp"
-                                android:background="@drawable/ic_list"
+                                android:background="@drawable/ic_account"
                                 android:backgroundTint="#292929"
                                 android:layout_marginStart="5dp" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="About"
+                                android:text="Full Name"
                                 android:gravity="center"
                                 android:layout_marginStart="10dp"
                                 android:textSize="16sp"
@@ -109,8 +130,8 @@
 
                         </LinearLayout>
 
-                        <TextView
-                            android:id="@+id/textViewUsersBio"
+                        <EditText
+                            android:id="@+id/editTextEditUsersName"
                             android:layout_width="300dp"
                             android:layout_height="wrap_content"
                             android:text="________________________"
@@ -150,14 +171,14 @@
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
                                 android:padding="2dp"
-                                android:background="@drawable/ic_work"
+                                android:background="@drawable/ic_list"
                                 android:backgroundTint="#292929"
                                 android:layout_marginStart="5dp" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Profession"
+                                android:text="Bio"
                                 android:gravity="center"
                                 android:layout_marginStart="10dp"
                                 android:textSize="16sp"
@@ -167,8 +188,66 @@
 
                         </LinearLayout>
 
-                        <TextView
-                            android:id="@+id/textViewUsersAge"
+                        <EditText
+                            android:id="@+id/editTextEditUsersBio"
+                            android:layout_width="300dp"
+                            android:layout_height="wrap_content"
+                            android:text="________________________"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            android:layout_marginStart="50dp"
+                            android:layout_marginBottom="15dp"
+                            android:layout_marginTop="8dp" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="15dp"
+                    app:cardElevation="10dp"
+                    app:cardUseCompatPadding="true"
+                    card_view:cardCornerRAdius="5dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="8dp" >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="3dp"
+                            android:layout_gravity="center" >
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:padding="2dp"
+                                android:background="@drawable/ic_calendar"
+                                android:backgroundTint="#292929"
+                                android:layout_marginStart="5dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Age"
+                                android:gravity="center"
+                                android:layout_marginStart="10dp"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:textColor="#605E5E"
+                                android:layout_gravity="center" />
+
+                        </LinearLayout>
+
+                        <EditText
+                            android:id="@+id/editTextEditUsersAge"
                             android:layout_width="300dp"
                             android:layout_height="wrap_content"
                             android:text="________________________"
@@ -204,10 +283,10 @@
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                android:padding="1dp"
+                                android:layout_alignParentStart="true"
                                 android:gravity="center"
-                                android:layout_alignParentStart="true" >
+                                android:orientation="horizontal"
+                                android:padding="1dp">
 
                                 <ImageView
                                     android:layout_width="35dp"
@@ -218,11 +297,11 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Address"
-                                    android:textSize="16sp"
                                     android:layout_margin="5dp"
-                                    android:textStyle="bold|normal"
-                                    android:textColor="#F8554A4A" />
+                                    android:text="Address"
+                                    android:textColor="#F8554A4A"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold|normal" />
 
                             </LinearLayout>
 
@@ -247,8 +326,8 @@
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical" >
 
-                                <TextView
-                                    android:id="@+id/textViewUsersPersonalAddress"
+                                <EditText
+                                    android:id="@+id/editTextEditUsersPersonalAddress"
                                     android:layout_width="300dp"
                                     android:layout_height="wrap_content"
                                     android:text="________________________"
@@ -281,8 +360,8 @@
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical" >
 
-                                <TextView
-                                    android:id="@+id/textViewUsersWorkAddress"
+                                <EditText
+                                    android:id="@+id/editTextEditUsersWorkAddress"
                                     android:layout_width="300dp"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="5dp"
@@ -299,62 +378,6 @@
 
                 </androidx.cardview.widget.CardView>
 
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:cardCornerRadius="15dp"
-                    app:cardElevation="10dp"
-                    app:cardUseCompatPadding="true"
-                    card_view:cardCornerRAdius="5dp" >
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="8dp" >
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:padding="3dp"
-                            android:layout_gravity="center" >
-
-                            <ImageView
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:padding="2dp"
-                                android:src="@drawable/ic_black_email"
-                                android:layout_marginStart="5dp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Email"
-                                android:gravity="center"
-                                android:layout_marginStart="10dp"
-                                android:textSize="16sp"
-                                android:textStyle="bold"
-                                android:textColor="#605E5E"
-                                android:layout_gravity="center" />
-
-                        </LinearLayout>
-
-                        <TextView
-                            android:id="@+id/textViewUsersEmail"
-                            android:layout_width="300dp"
-                            android:layout_height="wrap_content"
-                            android:text="________________________"
-                            android:textStyle="bold"
-                            android:textColor="@color/black"
-                            android:textSize="14sp"
-                            android:layout_marginStart="50dp"
-                            android:layout_marginBottom="15dp"/>
-
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
 
 
                 <androidx.cardview.widget.CardView
@@ -398,8 +421,8 @@
 
                         </LinearLayout>
 
-                        <TextView
-                            android:id="@+id/textViewUsersPhoneNumber"
+                        <EditText
+                            android:id="@+id/editTextEditUsersPhoneNumber"
                             android:layout_width="300dp"
                             android:layout_height="wrap_content"
                             android:text="________________________"

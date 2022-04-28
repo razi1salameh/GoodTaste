@@ -19,12 +19,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.FileNotFoundException;
@@ -32,13 +34,18 @@ import java.io.FileNotFoundException;
 public class SignUpActivity extends AppCompatActivity {
 
     private EditText editTextFullName, editTextEmail, editTextPassword, editTextConfirmPassword
-            , editTextAge, editTextPersonalAddress, editTextWorkAddress, editTextCellphone;
+            , editTextBio, editTextAge, editTextPersonalAddress, editTextWorkAddress, editTextCellphone;
     private Button buttonSigUp;
     private ImageView imageViewTheProfileImageInSignUp, imageViewTheEditProfileImageInSignUp;
+    private LinearLayout linearLayoutEditProfileImageInSignUp;
 
     private static final String TAG = "FIREBASE";
-    private FirebaseAuth firebaseAuth;
-    private FirebaseDatabase db;
+
+    //get instance of Authentication PROJECT IN FB console
+    private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    //gets the root of the real time DB in the FB console
+    private FirebaseDatabase db = FirebaseDatabase.getInstance("https://goodtaste-30dbb-default-rtdb.europe-west1.firebasedatabase.app/");
+
     private static final int CAMERA_REQUEST = 0;
     private static final int GALLERY_REQUEST = 1;
     private Bitmap profilesImage;
@@ -48,34 +55,23 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        db = FirebaseDatabase.getInstance("https://goodtaste-30dbb-default-rtdb.europe-west1.firebasedatabase.app/");
-
         //this will create variables with the values from xml that belongs to this java page
         editTextFullName = findViewById(R.id.editTextFullName);
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
         editTextConfirmPassword = findViewById(R.id.editTextConfirmPassword);
+        editTextBio = findViewById(R.id.editTextBio);
         editTextAge = findViewById(R.id.editTextAge);
         editTextPersonalAddress = findViewById(R.id.editTextPersonalAddress);
         editTextWorkAddress = findViewById(R.id.editTextWorkAddress);
         editTextCellphone = findViewById(R.id.editTextCellphone);
         imageViewTheProfileImageInSignUp = findViewById(R.id.imageViewTheProfileImageInSignUp);
         imageViewTheEditProfileImageInSignUp = findViewById(R.id.imageViewTheEditProfileImageInSignUp);
+        linearLayoutEditProfileImageInSignUp = findViewById(R.id.linearLayoutEditProfileImageInSignUp);
         buttonSigUp = findViewById(R.id.buttonSigUp);
 
-        //this gets the reference of the dataBase in the cloud
-        firebaseAuth = FirebaseAuth.getInstance();
-
         //this (the pen) opens the dialog for gallery of camera for the user to choose his profile picture
-        imageViewTheEditProfileImageInSignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                selectImage();
-            }
-        });
-
-        //this (the circle) opens the dialog for gallery of camera for the user to choose his profile picture
-        imageViewTheProfileImageInSignUp.setOnClickListener(new View.OnClickListener() {
+        linearLayoutEditProfileImageInSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 selectImage();
@@ -86,7 +82,7 @@ public class SignUpActivity extends AppCompatActivity {
         buttonSigUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!editTextFullName.getText().toString().equals("") && !editTextConfirmPassword.getText().toString().equals("")) {
+                if(!editTextFullName.getText().toString().equals("") && !editTextPassword.getText().toString().equals("")) {
                     if (editTextPassword.getText().toString().equals(editTextConfirmPassword.getText().toString()))
                         signup(editTextEmail.getText().toString(), editTextPassword.getText().toString());
                     else
@@ -109,13 +105,15 @@ public class SignUpActivity extends AppCompatActivity {
                     userSignUp.setFullName(editTextFullName.getText().toString());
                     userSignUp.setEmail(editTextEmail.getText().toString());
                     userSignUp.setPassword(editTextPassword.getText().toString());
-                    userSignUp.setAge(Integer.parseInt(editTextAge.getText().toString()));
+                    userSignUp.setBio(editTextBio.getText().toString());
+                    userSignUp.setAge(Double.parseDouble(editTextAge.getText().toString()));
                     userSignUp.setPersonalAddress(editTextPersonalAddress.getText().toString());
                     userSignUp.setWorkAddress(editTextWorkAddress.getText().toString());
                     userSignUp.setCellPhone(editTextCellphone.getText().toString());
                     if (profilesImage != null)
                         userSignUp.setUsersImage(User.bitmapToString(profilesImage));
-                    db.getReference().child("Users").push().child("profileInfo").setValue(userSignUp);
+                    String currentUser = firebaseAuth.getCurrentUser().getUid();
+                    db.getReference().child("Users").child(currentUser).child("ProfileInfo").setValue(userSignUp);
                     Intent i = new Intent(SignUpActivity.this, NavDrawerActivity.class);
                     startActivity(i);
 
