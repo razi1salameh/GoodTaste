@@ -111,10 +111,10 @@ public class NavDrawerActivity extends AppCompatActivity implements DialogInterf
             ImageView imageViewTheHeaderProfileImage = (ImageView) headerView.findViewById(R.id.imageViewTheHeaderProfileImage);
             imageViewTheHeaderProfileImage.setImageBitmap(User.stringToBitmap(tempUser.getUsersImage()));
         }
-        TextView textViewTheHeaderUsername = (TextView) headerView.findViewById(R.id.textViewTheHeaderUsername);
+        TextView textViewTheHeaderUsername = headerView.findViewById(R.id.textViewTheHeaderUsername);
         textViewTheHeaderUsername.setText(tempUser.getFullName());
 
-        TextView textViewTheHeaderEmail = (TextView) headerView.findViewById(R.id.textViewTheHeaderEmail);
+        TextView textViewTheHeaderEmail = headerView.findViewById(R.id.textViewTheHeaderEmail);
         textViewTheHeaderEmail.setText(firebaseAuth.getCurrentUser().getEmail());
     }
 

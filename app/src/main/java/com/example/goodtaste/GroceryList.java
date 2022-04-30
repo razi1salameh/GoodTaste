@@ -9,6 +9,9 @@ public class GroceryList implements Serializable  {
     //the notes text
     String description;
 
+    //key for reference
+    String key;
+
     public GroceryList(){}
 
     //Getters
@@ -18,6 +21,9 @@ public class GroceryList implements Serializable  {
     public String getListDescription() {
         return description;
     }
+    public String getKey(){
+        return key;
+    }
 
     //Setters
     public void setListTitle(String title) {
@@ -25,5 +31,8 @@ public class GroceryList implements Serializable  {
     }
     public void setListDescription(String description) {
         this.description = description;
+    }
+    public void setKey(String key) {
+        this.key = key;
     }
 }

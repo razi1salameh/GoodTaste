@@ -33,7 +33,7 @@
             <TextView
                 android:id="@+id/textViewGroceryListDescription"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="50dp"
                 android:layout_gravity="left"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="5dp"

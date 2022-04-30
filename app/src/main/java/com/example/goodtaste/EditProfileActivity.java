@@ -62,7 +62,7 @@ public class EditProfileActivity extends AppCompatActivity {
                     editTextEditUsersName.setText(currentUser.getFullName());
                     if(currentUser.getBio() != null)
                         editTextEditUsersBio.setText(currentUser.getBio());
-                    if(currentUser.getAge() != 0)
+                    if(currentUser.getAge() != null)
                         editTextEditUsersAge.setText(Double.toString(currentUser.getAge()));
                     if(currentUser.getPersonalAddress() != null)
                         editTextEditUsersPersonalAddress.setText(currentUser.getPersonalAddress());

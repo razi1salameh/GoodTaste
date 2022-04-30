@@ -32,10 +32,8 @@ public class HomeFragment extends Fragment {
     private RecyclerView recyclerView;
     private CardViewAdapterMinRecipe adapter;
 
-    //get instance of Authentication PROJECT IN FB console
-    private FirebaseAuth maFirebaseAuth = FirebaseAuth.getInstance();
     //gets the root of the real time DB in the FB console
-    private FirebaseDatabase database = FirebaseDatabase.getInstance("https://goodtaste-30dbb-default-rtdb.europe-west1.firebasedatabase.app/");
+    private FirebaseDatabase db = FirebaseDatabase.getInstance("https://goodtaste-30dbb-default-rtdb.europe-west1.firebasedatabase.app/");
 
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -43,7 +41,7 @@ public class HomeFragment extends Fragment {
         View root = binding.getRoot();
 
         //build a ref for user related data in real time DB using UID
-        DatabaseReference myRef = database.getReference("Recipe");
+        DatabaseReference myRef = db.getReference("Recipe");
 
         recyclerView = root.findViewById(R.id.recyclerViewMinRecipeList);
         myRef.addValueEventListener(new ValueEventListener() {

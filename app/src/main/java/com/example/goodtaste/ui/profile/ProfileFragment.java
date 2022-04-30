@@ -100,7 +100,7 @@ public class ProfileFragment extends Fragment {
         textViewUsersEmail.setText(firebaseAuth.getCurrentUser().getEmail());
         if(tempUser.getBio() != null)
             textViewUsersBio.setText(tempUser.getBio());
-        if(tempUser.getAge() > 0.0)
+        if(tempUser.getAge() != null)
             textViewUsersAge.setText(Double.toString(tempUser.getAge()));
         if(tempUser.getPersonalAddress() != null)
             textViewUsersPersonalAddress.setText(tempUser.getPersonalAddress());

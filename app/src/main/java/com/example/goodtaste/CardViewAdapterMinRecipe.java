@@ -12,12 +12,22 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.List;
 
 public class CardViewAdapterMinRecipe extends RecyclerView.Adapter<CardViewAdapterMinRecipe.MyViewHolder> {
 
     private Context context;
     private List<Recipe> recipes;
+    static boolean isFilled = false;
+
+    //get instance of Authentication PROJECT IN FB console
+    private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    //gets the root of the real time DB in the FB console
+    private FirebaseDatabase db = FirebaseDatabase.getInstance("https://goodtaste-30dbb-default-rtdb.europe-west1.firebasedatabase.app/");
 
     public CardViewAdapterMinRecipe(Context context, List<Recipe> recipes){
         this.context = context;
@@ -34,7 +44,7 @@ public class CardViewAdapterMinRecipe extends RecyclerView.Adapter<CardViewAdapt
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        Recipe recipe = recipes.get(position);
+        Recipe clickedRecipe = recipes.get(position);
         if(recipes.get(position).getImage() != null)
             holder.imageViewRecipePicture.setImageBitmap(Recipe.stringToBitmap(recipes.get(position).getImage()));
         holder.textViewRowName.setText(recipes.get(position).getTitle());
@@ -46,10 +56,34 @@ public class CardViewAdapterMinRecipe extends RecyclerView.Adapter<CardViewAdapt
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, DetailedRecipeActivity.class);
-                intent.putExtra("recipe",recipe);
+                intent.putExtra("recipe",clickedRecipe);
                 context.startActivity(intent);
             }
         });
+
+        /** To check why this code doean't wotk and gives an error **/
+        //this button adds the recipe to favorites and changes to fill star (as a recipe that has been added to fav)
+//        holder.textViewRowFavorites.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                FavoriteRecipe favRecipe = new FavoriteRecipe();
+//                DatabaseReference referenceToFavRecipe = db.getReference().child("Recipe").child(clickedRecipe.getKey());
+//                favRecipe.setRecipesReference(referenceToFavRecipe);
+//                favRecipe.setUsersFavorite(firebaseAuth.getCurrentUser().getUid());
+//                String key = db.getReference().child("Favorites").push().getKey();
+//                favRecipe.setKey(key);
+//                if (!isFilled) {
+//                    db.getReference().child("Favorites").child(key).setValue(favRecipe);
+//                    holder.textViewRowFavorites.setBackgroundResource(R.drawable.ic_star_fill);
+//                    isFilled = true;
+//                }
+//                else {
+//                    db.getReference().child("Favorites").child(key).removeValue();
+//                    holder.textViewRowFavorites.setBackgroundResource(R.drawable.ic_star_not_fill);
+//                    isFilled = false;
+//                }
+//            }
+//        });
     }
 
     @Override
@@ -76,31 +110,6 @@ public class CardViewAdapterMinRecipe extends RecyclerView.Adapter<CardViewAdapt
             textViewRowVideo = itemView.findViewById(R.id.textViewRowVideo);
             textViewRowFavorites = itemView.findViewById(R.id.textViewRowFavorites);
             ImageButtonSeeMore = itemView.findViewById(R.id.ImageButtonSeeMore);
-
-            //this button adds the recipe to favorites and changes to fill star (as a recipe that has been added to fav)
-            textViewRowFavorites.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    /** NEED TO ADD THE MINI RECIPE TO FAVORITES PAGE AND ALSO ADD TO FIREBASE AS ONE OF FAVORITES **/
-                    if (!isFilled) {
-                        textViewRowFavorites.setBackgroundResource(R.drawable.ic_star_fill);
-                        isFilled = true;
-                    }
-                    else {
-                        textViewRowFavorites.setBackgroundResource(R.drawable.ic_star_not_fill);
-                        isFilled = false;
-                    }
-                }
-            });
-
-            //this button opens the detailed recipe
-            ImageButtonSeeMore.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(itemView.getContext(), DetailedRecipeActivity.class);
-                    itemView.getContext().startActivity(intent);
-                }
-            });
         }
     }
 }

@@ -18,7 +18,7 @@ public class DetailedGroceryListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detailed_grocery_list);
 
-        GroceryList groceryList = (GroceryList) getIntent().getSerializableExtra("gl");
+        GroceryList groceryList = (GroceryList) getIntent().getSerializableExtra("clickedGroceryList");
 
         textViewExpandedGroceryListTitle = findViewById(R.id.textViewExpandedGroceryListTitle);
         textViewExpandedGroceryListDescription = findViewById(R.id.textViewExpandedGroceryListDescription);

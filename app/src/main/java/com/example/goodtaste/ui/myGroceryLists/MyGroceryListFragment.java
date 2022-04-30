@@ -5,16 +5,19 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.goodtaste.DetailedGroceryListActivity;
 import com.example.goodtaste.GroceryList;
+import com.example.goodtaste.GroceryListAdapter;
 import com.example.goodtaste.Ingredient;
 import com.example.goodtaste.NavDrawerActivity;
 import com.example.goodtaste.R;
@@ -36,6 +39,11 @@ public class MyGroceryListFragment extends Fragment {
     private Button buttonCreateNewGroceryList;
     private ListView listViewGroceryLists;
 
+    //object containing the items to be displayed - Data
+    private ArrayList<GroceryList> groceryLists;
+    //the object for the adapter connecting the data to the view
+    private GroceryListAdapter adapterForGroceryList;
+
     //get instance of Authentication PROJECT IN FB console
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     //gets the root of the real time DB in the FB console
@@ -53,12 +61,15 @@ public class MyGroceryListFragment extends Fragment {
         buttonCreateNewGroceryList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                addGroceryList();
+                if (!editTextGroceryListTitle.getText().toString().equals("") && !editTextGroceryListDescription.getText().toString().equals(""))
+                    addGroceryList();
+                else
+                    Toast.makeText(getActivity(), "Make sure Title and description aren't empty", Toast.LENGTH_SHORT).show();
             }
         });
 
-        ArrayList<GroceryList> groceryLists = new ArrayList<>();
-        ArrayAdapter<GroceryList> adapterForGroceryList = new ArrayAdapter<GroceryList>(getActivity(), R.layout.grocery_list_item, groceryLists);
+        groceryLists = new ArrayList<>();
+        adapterForGroceryList = new GroceryListAdapter(getActivity(), R.layout.grocery_list_item, groceryLists);
         listViewGroceryLists.setAdapter(adapterForGroceryList);
 
         DatabaseReference referenceForGroceryLists = db.getReference().child("Users").child(firebaseAuth.getCurrentUser().getUid()).child("GroceryLists");
@@ -79,6 +90,28 @@ public class MyGroceryListFragment extends Fragment {
             }
         });
 
+        //on item clicked in groceryLists open detailed groceryListActivity with the specific clicked item's details
+        listViewGroceryLists.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getActivity(), DetailedGroceryListActivity.class);
+                intent.putExtra("clickedGroceryList", groceryLists.get(i));
+                startActivity(intent);
+            }
+        });
+
+        //on item long clicked in groceryLists gets deleted from the view and also from FB
+        listViewGroceryLists.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String clickedItemsKey = groceryLists.get(i).getKey();
+                String currentUser = firebaseAuth.getCurrentUser().getUid();
+                db.getReference().child("Users").child(currentUser).child("GroceryLists").child(clickedItemsKey).removeValue();
+                groceryLists.remove(i);
+                return true;
+            }
+        });
+
         return root;
     }
 
@@ -86,12 +119,12 @@ public class MyGroceryListFragment extends Fragment {
         GroceryList groceryList = new GroceryList();
         groceryList.setListTitle(editTextGroceryListTitle.getText().toString());
         groceryList.setListDescription(editTextGroceryListDescription.getText().toString());
+        editTextGroceryListTitle.setText("");
+        editTextGroceryListDescription.setText("");
         String currentUser = firebaseAuth.getCurrentUser().getUid();
-        db.getReference().child("Users").child(currentUser).child("GroceryLists").push().setValue(groceryList);
-
-        Intent i = new Intent(getActivity(), DetailedGroceryListActivity.class);
-        i.putExtra("gl", groceryList);
-        startActivity(i);
+        String key = db.getReference().child("Users").child(currentUser).child("GroceryLists").push().getKey();
+        groceryList.setKey(key);
+        db.getReference().child("Users").child(currentUser).child("GroceryLists").child(key).setValue(groceryList);
     }
 
     @Override
