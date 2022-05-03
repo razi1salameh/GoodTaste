@@ -44,7 +44,6 @@ public class EditProfileActivity extends AppCompatActivity {
     private static final int CAMERA_REQUEST = 0;
     private static final int GALLERY_REQUEST = 1;
     private Bitmap updatedProfilesImage;
-    private User currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +55,7 @@ public class EditProfileActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot dataSnapshot:snapshot.getChildren()) {
-                    currentUser = dataSnapshot.getValue(User.class);
+                    User currentUser = dataSnapshot.getValue(User.class);
                     if(currentUser.getUsersImage() != null)
                         imageViewEditProfileImage.setImageBitmap(User.stringToBitmap(currentUser.getUsersImage()));
                     editTextEditUsersName.setText(currentUser.getFullName());

@@ -18,7 +18,7 @@
         android:layout_height="80dp"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="30dp"
         android:elevation="15dp"
         android:src="@drawable/ic_person"
         android:background="@color/white"
@@ -45,15 +45,5 @@
         android:textColor="@color/white"
         android:fontFamily="@font/allerta_stencil"
         android:text="@string/nav_header_subtitle" />
-
-    <TextView
-        android:id="@+id/textViewSeeProfile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_gravity="right"
-        android:textColor="@color/white"
-        android:fontFamily="@font/allerta_stencil"
-        android:text="See Profile" />
 
 </LinearLayout>

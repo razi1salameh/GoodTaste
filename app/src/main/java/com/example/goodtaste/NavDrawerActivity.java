@@ -52,7 +52,6 @@ public class NavDrawerActivity extends AppCompatActivity implements DialogInterf
     //gets the root of the real time DB in the FB console
     private FirebaseDatabase db = FirebaseDatabase.getInstance("https://goodtaste-30dbb-default-rtdb.europe-west1.firebasedatabase.app/");
 
-    private TextView textViewSeeProfile;
     private MenuItem viewLogOut;
 
     @Override
@@ -66,9 +65,6 @@ public class NavDrawerActivity extends AppCompatActivity implements DialogInterf
 
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
-        View headerView = navigationView.getHeaderView(0);
-
-        textViewSeeProfile = headerView.findViewById(R.id.textViewSeeProfile);
 
         DatabaseReference referenceForUser = db.getReference().child("Users").child(firebaseAuth.getCurrentUser().getUid());
         referenceForUser.addValueEventListener(new ValueEventListener() {
@@ -108,7 +104,7 @@ public class NavDrawerActivity extends AppCompatActivity implements DialogInterf
         NavigationView navigationView = binding.navView;
         View headerView = navigationView.getHeaderView(0);
         if(tempUser.getUsersImage() !=null){
-            ImageView imageViewTheHeaderProfileImage = (ImageView) headerView.findViewById(R.id.imageViewTheHeaderProfileImage);
+            ImageView imageViewTheHeaderProfileImage = headerView.findViewById(R.id.imageViewTheHeaderProfileImage);
             imageViewTheHeaderProfileImage.setImageBitmap(User.stringToBitmap(tempUser.getUsersImage()));
         }
         TextView textViewTheHeaderUsername = headerView.findViewById(R.id.textViewTheHeaderUsername);

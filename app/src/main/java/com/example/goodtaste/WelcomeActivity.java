@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 public class WelcomeActivity extends AppCompatActivity {
 
-    private TextView textViewTitle1, textViewExplore, textViewRegister, textViewClickHere, textViewNotUser;
+    private TextView textViewRegister;
     private Button buttonLogIn;
 
     @Override
@@ -18,21 +18,22 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
-        //this will create variables with the values from xml that belongs to this java page
-        textViewTitle1 = findViewById(R.id.textViewTitle1);
-        textViewExplore = findViewById(R.id.textViewExplore);
-        textViewClickHere = findViewById(R.id.textViewClickHere);
         textViewRegister = findViewById(R.id.textViewRegister);
-        textViewNotUser = findViewById(R.id.textViewNotUser);
         buttonLogIn = findViewById(R.id.buttonLogIn);
-    }
 
-    public void MoveToLogIn(View view) {
-        Intent i = new Intent(WelcomeActivity.this, LogInActivity.class);
-        startActivity(i);
-    }
+        buttonLogIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(WelcomeActivity.this, LogInActivity.class);
+                startActivity(i);
+            }
+        });
 
-    public void MoveToRegister(View view) {
-        startActivity(new Intent(WelcomeActivity.this, SignUpActivity.class));
+        textViewRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(WelcomeActivity.this, SignUpActivity.class));
+            }
+        });
     }
 }

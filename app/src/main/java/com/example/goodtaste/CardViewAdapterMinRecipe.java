@@ -94,10 +94,9 @@ public class CardViewAdapterMinRecipe extends RecyclerView.Adapter<CardViewAdapt
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
         ImageView imageViewRecipePicture;
-        TextView textViewRowName, textViewRowCategory, textViewRowTime;
-        TextView textViewRowPerson, textViewRowVideo, textViewRowFavorites;
+        TextView textViewRowName, textViewRowCategory, textViewRowTime,
+                textViewRowPerson, textViewRowVideo, textViewRowFavorites;
         ImageButton ImageButtonSeeMore;
-        static boolean isFilled = false;
 
         public MyViewHolder(@NonNull View itemView){
             super(itemView);

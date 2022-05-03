@@ -13,7 +13,7 @@ import androidx.core.app.NotificationManagerCompat;
 
 public class NotificationIntentService extends IntentService {
 
-    //this the channel ID for notification management
+    //this is the channel ID for notification management
     private static final int NOTIFICATION_ID = 3;
 
     public NotificationIntentService() {

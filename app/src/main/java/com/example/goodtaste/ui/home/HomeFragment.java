@@ -40,10 +40,10 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        recyclerView = root.findViewById(R.id.recyclerViewMinRecipeList);
+
         //build a ref for user related data in real time DB using UID
         DatabaseReference myRef = db.getReference("Recipe");
-
-        recyclerView = root.findViewById(R.id.recyclerViewMinRecipeList);
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

@@ -15,13 +15,8 @@ public class DetailedRecipeActivity extends AppCompatActivity {
     private ImageView imageViewExpandedRecipePicture;
 
     //Category, Time, Creator, Video
-    private TextView textViewExpandedRecipeCategory, textViewExpandedRecipeTime, textViewExpandedRecipeCreator, textViewExpandedRecipeVideo;
-
-    //Ingredients & Instructions
-    private TextView textViewExpandedRecipeIngredients, textViewExpandedRecipeInstruction;
-
-    //the button of the Favorites
-    private TextView textViewExpandedRecipeAddToFavorites;
+    private TextView textViewExpandedRecipeCategory, textViewExpandedRecipeTime, textViewExpandedRecipeCreator, textViewExpandedRecipeVideo,
+            textViewExpandedRecipeIngredients, textViewExpandedRecipeInstruction;
 
     //The button that clicks to minimize the recipe's details
     private ImageButton ImageButtonSeeLessRecipe;
@@ -40,7 +35,7 @@ public class DetailedRecipeActivity extends AppCompatActivity {
         textViewExpandedRecipeVideo = findViewById(R.id.textViewExpandedRecipeVideo);
         textViewExpandedRecipeIngredients = findViewById(R.id.textViewExpandedRecipeIngredients);
         textViewExpandedRecipeInstruction = findViewById(R.id.textViewExpandedRecipeInstruction);
-        textViewExpandedRecipeAddToFavorites = findViewById(R.id.textViewExpandedRecipeAddToFavorites);
+
         ImageButtonSeeLessRecipe = findViewById(R.id.ImageButtonSeeLessRecipe);
 
 

@@ -24,13 +24,11 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LogInActivity extends AppCompatActivity {
 
-    private TextView textViewMainTitle2, textViewLogIn;
     private EditText editTextEmail, editTextPassword;
-    private Button buttonLogIn, buttonSigUp;
+    private Button buttonLogIn;
 
     private Intent musicIntent;
 
-    private static final String TAG = "FIREBASE";
     private FirebaseAuth firebaseAuth;
 
     @Override
@@ -39,14 +37,11 @@ public class LogInActivity extends AppCompatActivity {
         setContentView(R.layout.activity_log_in);
 
         //this will create variables with the values from xml that belongs to this java page
-        textViewMainTitle2 = findViewById(R.id.textViewMainTitle2);
-        textViewLogIn = findViewById(R.id.textViewLogIn);
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
         buttonLogIn = findViewById(R.id.buttonLogIn);
-        buttonSigUp = findViewById(R.id.buttonSigUp);
 
-        //this will start the service which in turn will the music
+        //this will start the service which will turn on the music
         musicIntent = new Intent(this, MusicService.class);
         startService(musicIntent);
 
@@ -56,17 +51,34 @@ public class LogInActivity extends AppCompatActivity {
 
         SharedPreferences sp = getSharedPreferences("settings",MODE_PRIVATE);
         //saving the user's info in variables
-        String email = sp.getString("Email","abc@gmail.com");
-        String password = sp.getString("Password", "123456");
-
-        //checking if the values are null in order to fill them
-        if(!email.equals("") && !password.equals("")) {
-            editTextEmail.setText(email);
-            editTextPassword.setText(password);
-
+        String usersEmail = sp.getString("Email", "");
+        String usersPassword = sp.getString("Password", "");
+        if(!usersEmail.equals("") && !usersPassword.equals("")){
+            editTextEmail.setText(usersEmail);
+            editTextPassword.setText(usersPassword);
         }
-    }
 
+
+        buttonLogIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!editTextPassword.getText().toString().equals("") && !editTextEmail.getText().toString().equals(""))
+                    login(editTextEmail.getText().toString(), editTextPassword.getText().toString());
+                else
+                    Toast.makeText(LogInActivity.this, "Please make sure email and password are filled", Toast.LENGTH_SHORT).show();
+            }
+        });
+        }
+
+    public void sharedP(){
+        SharedPreferences sp = getSharedPreferences("settings",MODE_PRIVATE);
+        //saving the user's info in variables
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putString("Email",editTextEmail.getText().toString());
+        editor.putString("Password", editTextPassword.getText().toString());
+        //saves and closes the file
+        editor.commit();
+    }
 
     public void login(String email, String password){
         firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -74,29 +86,18 @@ public class LogInActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     //SignIn success update UI with signIn users information
-                    Log.d(TAG, "signInWithEmail:success");
-                    FirebaseUser user = firebaseAuth.getCurrentUser();
+                    Log.d("FIREBASE", "signInWithEmail:success");
                     Intent i = new Intent(LogInActivity.this, NavDrawerActivity.class);
+                    sharedP();
                     startActivity(i);
 
                 }else{
                     //If signIn fails display a massage to the user
-                    Log.w(TAG, "signInWithEmail:failure", task.getException());
+                    Log.w("FIREBASE", "signInWithEmail:failure", task.getException());
                     Toast.makeText(LogInActivity.this, "Authentication failed", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-    }
-
-    public void logInMovePage(View view) {
-        String p = editTextPassword.getText().toString();
-        String e = editTextEmail.getText().toString();
-        if(!p.equals("") && !e.equals(""))
-            login(editTextEmail.getText().toString(), editTextPassword.getText().toString());
-        else
-            Toast.makeText(LogInActivity.this, "Please make sure email and password are filled", Toast.LENGTH_SHORT).show();
-
-
     }
 
 }

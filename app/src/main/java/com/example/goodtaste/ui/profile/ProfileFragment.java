@@ -29,10 +29,9 @@ public class ProfileFragment extends Fragment {
 
     private FragmentProfileBinding binding;
     private ImageView imageViewBackToHomePage, imageViewProfileImage;
-    private TextView textViewUsersName, textViewPersonalInfo, textViewUsersBio, textViewUsersAge;
-    private TextView textViewUsersPersonalAddress,textViewUsersWorkAddress, textViewUsersEmail, textViewUsersPhoneNumber;
+    private TextView textViewUsersName, textViewPersonalInfo, textViewUsersBio, textViewUsersAge,
+            textViewUsersPersonalAddress,textViewUsersWorkAddress, textViewUsersEmail, textViewUsersPhoneNumber;
     private LinearLayout linearLayoutEditProfile;
-    private String currentUserUid;
 
     //get instance of Authentication PROJECT IN FB console
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();

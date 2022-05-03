@@ -43,39 +43,35 @@ public class NewRecipeFragment extends Fragment {
 
     private TextView textViewRecipesPicture, textViewRecipesVideo, textViewRecipesIngredientsList, textViewRecipesIngredientsDelete;
     private ImageView imageViewRecipesBackPicture, imageViewRecipesBackVideo;
-    private EditText editTextRecipesName, editTextRecipesHours, editTextRecipesMinutes, editTextRecipesCategory;
-    private EditText editTextRecipesIngredientsName, editTextRecipesIngredientsAmount, editTextRecipesIngredientsUnit;
-    private EditText editTextRecipesSteps;
+    private EditText editTextRecipesName, editTextRecipesHours, editTextRecipesMinutes, editTextRecipesCategory,
+            editTextRecipesIngredientsName, editTextRecipesIngredientsAmount, editTextRecipesIngredientsUnit,editTextRecipesSteps;
     private Button buttonAddIngredients, buttonCreateRecipe;
 
     private FragmentNewRecipeBinding binding;
-    private FirebaseAuth firebaseAuth;
-    private DatabaseReference reference;
-    private FirebaseDatabase  db;
     private ArrayList<Ingredient> ingredients;
-    private String oneIngredient ="";
-    private String updateView = "";
-    private static int numOfIngredient = 1 ;
+    private String oneIngredient ="", updateView = "";
+    private static int numOfIngredient = 0 ;
     private static final int CAMERA_REQUEST = 0;
     private static final int GALLERY_REQUEST = 1;
-    private Context context;
     private Bitmap recipesImage;
 
+    private DatabaseReference reference;
+    //get instance of Authentication PROJECT IN FB console
+    private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    //gets the root of the real time DB in the FB console
+    private FirebaseDatabase db = FirebaseDatabase.getInstance("https://goodtaste-30dbb-default-rtdb.europe-west1.firebasedatabase.app/");
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentNewRecipeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        context = container.getContext();
-        db = FirebaseDatabase.getInstance("https://goodtaste-30dbb-default-rtdb.europe-west1.firebasedatabase.app/");
         reference = db.getReference("Recipe");
-
-        firebaseAuth = FirebaseAuth.getInstance();
 
         ingredients = new ArrayList<>();
 
         textViewRecipesPicture = root.findViewById(R.id.textViewRecipesPicture);
         textViewRecipesVideo = root.findViewById(R.id.textViewRecipesVideo);
+        textViewRecipesIngredientsList = root.findViewById(R.id.textViewRecipesIngredientsList);
         textViewRecipesIngredientsDelete = root.findViewById(R.id.textViewRecipesIngredientsDelete);
         imageViewRecipesBackPicture = root.findViewById(R.id.imageViewRecipesBackPicture);
         imageViewRecipesBackVideo = root.findViewById(R.id.imageViewRecipesBackVideo);
@@ -89,7 +85,6 @@ public class NewRecipeFragment extends Fragment {
         editTextRecipesSteps = root.findViewById(R.id.editTextRecipesSteps);
         buttonAddIngredients = root.findViewById(R.id.buttonAddIngredients);
         buttonCreateRecipe = root.findViewById(R.id.buttonCreateRecipe);
-        textViewRecipesIngredientsList = root.findViewById(R.id.textViewRecipesIngredientsList);
 
 
         //this button opens the gallery or camera so you can choose a picture from to the recipe
@@ -110,7 +105,7 @@ public class NewRecipeFragment extends Fragment {
                             editTextRecipesIngredientsUnit.getText().toString());
 
                     ingredients.add(ing);
-                    oneIngredient += numOfIngredient + ". " + ing.ingredientToString() + "\n";
+                    oneIngredient += (numOfIngredient+1) + ". " + ing.ingredientToString() + "\n";
                     textViewRecipesIngredientsList.setText(oneIngredient);
                     numOfIngredient++;
                     editTextRecipesIngredientsName.getText().clear();
@@ -127,13 +122,19 @@ public class NewRecipeFragment extends Fragment {
         textViewRecipesIngredientsDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(ingredients != null){
-                    numOfIngredient = numOfIngredient - 2;
+                if(ingredients != null  && !ingredients.isEmpty()){
+                    numOfIngredient = numOfIngredient - 1;
                     ingredients.remove(numOfIngredient);
-                    for (int i=1 ; i<=numOfIngredient ; i++){
-                        updateView += i +"." + ingredients.get(i).ingredientToString() + "\n" ;
+                    for (int i=0 ; i<numOfIngredient ; i++){
+                        updateView += (i+1) +"." + ingredients.get(i).ingredientToString() + "\n" ;
                     }
+                    oneIngredient = updateView;
                     textViewRecipesIngredientsList.setText(updateView);
+                    updateView = "";
+                }
+                else {
+                    textViewRecipesIngredientsList.setText("");
+                    Toast.makeText(getContext(), "Make sure you have added an ingredient to the list before you delete", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -143,7 +144,11 @@ public class NewRecipeFragment extends Fragment {
         buttonCreateRecipe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                addRecipe();
+                if(!editTextRecipesName.getText().toString().equals("") && !editTextRecipesName.getText().toString().equals("")
+                    && (ingredients != null  && !ingredients.isEmpty()) && !editTextRecipesSteps.getText().toString().equals(""))
+                    addRecipe();
+                else
+                    Toast.makeText(getContext(), "Make sure the recipe's fields are filled", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -245,7 +250,7 @@ public class NewRecipeFragment extends Fragment {
                 Uri targetUri = data.getData();
                 try {
                     //Decode an input stream into bitmap
-                    Bitmap picture = BitmapFactory.decodeStream(context.getContentResolver().openInputStream(targetUri));
+                    Bitmap picture = BitmapFactory.decodeStream(getContext().getContentResolver().openInputStream(targetUri));
                     recipesImage = picture;
                     imageViewRecipesBackPicture.setImageBitmap(picture);
                     }
